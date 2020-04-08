@@ -3,8 +3,8 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page>
-		<content>
-			<Button text="Login" press=".onPressLogin" />
+		<content >
+			<Button class="red" text="Login" press=".onPressLogin" />
 		</content>
 	</Page>
 </mvc:View>
