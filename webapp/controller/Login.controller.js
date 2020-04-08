@@ -7,6 +7,9 @@ sap.ui.define([
 
 	return Controller.extend("neo.tgs.controller.Login", {
 		onInit: function () {
+			
+			this.byId("usuario").addBeginIcon("sap-icon://person-placeholder");
+			this.byId("contrasenia").addBeginIcon("sap-icon://key");
 
 		},
 		

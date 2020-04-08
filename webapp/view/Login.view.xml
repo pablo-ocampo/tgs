@@ -1,11 +1,39 @@
 <mvc:View
 	controllerName="neo.tgs.controller.Login"
 	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards">
+	
 	<Page>
 		<content >
-			<Button class="red" text="Login" press=".onPressLogin" />
-			<Button class="red" text="Pablito" press=".onPressLogin" />
+			<FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+				<items>
+					<f:Card
+						class="sapUiMediumMargin"
+						height="250px">
+						<f:header>
+							<card:Header
+								title="{i18n>titulo_login}"/>
+						</f:header>
+						<f:content>
+							<VBox
+							width="100%"
+							class="sapUiSmallMargin sapUiResponsiveContentPadding"
+							justifyContent="SpaceBetween">
+								<Input id="usuario" placeholder="Usuario" value="{login>/usuario}" />
+								<Input id="contrasenia" placeholder="Contraseña" value="{login>/contrasenia}" />
+								<HBox justifyContent="SpaceBetween" >
+									<Link text="{i18n>olvidar_contrasenia}" press="onOlvidarContraseniaPress"/>
+									<Button id="entrar" text="Entrar" icon="sap-icon://visits" type="Emphasized" press="onPressLogin" />
+								</HBox>
+							</VBox>
+						</f:content>
+					</f:Card>
+				</items>
+			</FlexBox>
 		</content>
 	</Page>
 </mvc:View>
