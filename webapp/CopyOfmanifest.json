@@ -89,7 +89,16 @@
 			{
 				"name": "SplitApp",
 				"pattern": "Main",
-				"target": "SplitApp"
+				"target": "SplitApp",
+				
+				"subroutes": [{
+					"name": "Inicio",
+					"pattern": "Main",
+					"view": "Inicio",
+					"targetControl": "toolPage",
+					"controlAggregation": "mainContents",
+					"targetAgreggation": "mainContents"
+				}]
 			}],
 			"targets": {
 				"Login": {
@@ -98,6 +107,20 @@
 					"clearControlAggregation": false,
 					"viewId": "Login",
 					"viewName": "Login"
+				},
+				"Menu": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Menu",
+					"viewName": "Menu"
+				},
+				"Inicio": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Inicio",
+					"viewName": "Inicio"
 				},
 				"SplitApp": {
 					"viewType": "XML",

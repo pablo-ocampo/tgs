@@ -50,7 +50,12 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 	<tnt:mainContents>
-		
+		<NavContainer id="pageContainer" initialPage="Inicio">
+			<pages>
+					<mvc:XMLView id="Inicio" viewName="neo.tgs.view.Inicio"/>
+					<mvc:XMLView id="MonitorFacturas" viewName="neo.tgs.view.MonitorFacturas"/>
+			</pages>
+		</NavContainer>
 	</tnt:mainContents>
 </tnt:ToolPage>
 </mvc:View>

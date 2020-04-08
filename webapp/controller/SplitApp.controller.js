@@ -6,7 +6,11 @@ sap.ui.define([
 	return Controller.extend("neo.tgs.controller.SplitApp", {
 		onInit: function () {
 			
+		},
+		
+		onItemSelect: function (oEvent) {
+			var oItem = oEvent.getParameter("item");
+			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
 		}
-		//asdfasdf
 	});
 });

@@ -3,8 +3,9 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 
-	return Controller.extend("neo.tgs.controller.App", {
+	return Controller.extend("neo.tgs.controller.MonitorFacturas", {
 		onInit: function () {
+
 		}
 	});
 });

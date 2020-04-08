@@ -2,9 +2,18 @@
 	controllerName="neo.tgs.controller.Inicio"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page>
+	<Page title="Inicio">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="Inicio" separatorStyle="{/selected}">
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
 		<content>
-			<Button text="Iniciado" press=".onPressLogin" />
+			<Text text="Un simple texto de inicio... Bienvenido Matías Tardito"/>
 		</content>
 	</Page>
 </mvc:View>

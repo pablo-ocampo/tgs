@@ -26,16 +26,35 @@
 			"key": "Reportes",
 			"items": [
 				{
-					"title": "Maestro proveedor"
+					"title": "Órdenes de compra"
 				},
 				{
-					"title": "Archivos"
+					"title": "Facturas"
+				},
+				{
+					"title": "Cuenta corriente"
+				},
+				{
+					"title": "Maestro proveedor"
 				}]
 		},
 		{
-			"title": "Monitor de facturas",
-			"icon": "sap-icon://document-text",
+			"title": "Ingresar factura",
+			"icon": "sap-icon://sales-order",
 			"key": "Facturas"
+		},
+		{
+			"title": "Monitor",
+			"icon": "sap-icon://document-text",
+			"expanded": false,
+			"key": "MonitorFacturas",
+			"items": [
+				{
+					"title": "Facturas"
+				},
+				{
+					"title": "Cuentas corrientes"
+				}]
 		},
 		{
 			"title": "Usuario",
@@ -48,6 +67,9 @@
 				},
 				{
 					"title": "Listar"
+				},
+				{
+					"title": "Cambio de contraseña de proveedor"
 				}]
 		}]
 }
