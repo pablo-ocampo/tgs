@@ -47,10 +47,10 @@
 			"title": "Monitor",
 			"icon": "sap-icon://document-text",
 			"expanded": false,
-			"key": "MonitorFacturas",
 			"items": [
 				{
-					"title": "Facturas"
+					"title": "Facturas",
+					"key": "MonitorFacturas"
 				},
 				{
 					"title": "Cuentas corrientes"
