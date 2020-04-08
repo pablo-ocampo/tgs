@@ -5,6 +5,7 @@
 	<Page>
 		<content >
 			<Button class="red" text="Login" press=".onPressLogin" />
+			<Button class="red" text="Pablito" press=".onPressLogin" />
 		</content>
 	</Page>
 </mvc:View>
