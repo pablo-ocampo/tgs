@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return Controller.extend("neo.tgs.controller.App", {
 		onInit: function () {
-
+			//mati gato
 		}
 	});
 });

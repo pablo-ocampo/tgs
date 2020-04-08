@@ -1,56 +1,56 @@
 <mvc:View
 	controllerName="neo.tgs.controller.SplitApp"
-	xmlns:m="sap.m"
+	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.tnt">
-	<ToolPage id="toolPage">
-		<header>
-			<ToolHeader>
-				<m:Button
+	xmlns:tnt="sap.tnt">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button
 					id="sideNavigationToggleButton"
 					icon="sap-icon://menu2"
 					type="Transparent"
 					press=".onSideNavButtonPress">
-					<m:layoutData>
-						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
-					</m:layoutData>
-				</m:Button>
-				<m:ToolbarSpacer width="20px" />
-				<ToolHeaderUtilitySeparator />
-				<m:ToolbarSpacer>
-					<m:layoutData>
-						<m:OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
-					</m:layoutData>
-				</m:ToolbarSpacer>
-				<m:Button text="Entelgy" type="Transparent" press=".handleUserNamePress">
-					<m:layoutData>
-						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
-					</m:layoutData>
-				</m:Button>
-			</ToolHeader>
-		</header>
-		<sideContent>
-			<SideNavigation
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px" />
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer>
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+					</layoutData>
+				</ToolbarSpacer>
+				<Button text="Entelgy" type="Transparent" press=".handleUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation
 				expanded="true"
 				itemSelect=".onItemSelect">
-				<NavigationList items="{path: 'menu>/navigation'}">
-					<NavigationListItem
+				<tnt:NavigationList items="{path: 'menu>/navigation'}">
+					<tnt:NavigationListItem
 						text="{menu>title}"
 						icon="{menu>icon}"
 						enabled="{menu>enabled}"
 						expanded="{menu>expanded}"
 						items="{menu>items}"
 						key="{menu>key}">
-						<NavigationListItem
+						<tnt:NavigationListItem
 							text="{menu>title}"
 							key="{menu>key}"
 							enabled="{menu>enabled}" />
-					</NavigationListItem>
-				</NavigationList>
-			</SideNavigation>
-		</sideContent>
-	<mainContents>
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+	<tnt:mainContents>
 		
-	</mainContents>
-</ToolPage>
+	</tnt:mainContents>
+</tnt:ToolPage>
 </mvc:View>
