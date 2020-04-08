@@ -1,0 +1,53 @@
+{
+	"selectedKey": "Inicio",
+	"navigation": [
+		{
+			"title": "Inicio",
+			"icon": "sap-icon://home",
+			"key": "Inicio"
+		},
+		{
+			"title": "Área de reclamo",
+			"icon": "sap-icon://request",
+			"expanded": false,
+			"key": "Reclamos",
+			"items": [
+				{
+					"title": "Crear"
+				},
+				{
+					"title": "Listar"
+				}]
+		},
+		{
+			"title": "Reportes",
+			"icon": "sap-icon://table-view",
+			"expanded": false,
+			"key": "Reportes",
+			"items": [
+				{
+					"title": "Maestro proveedor"
+				},
+				{
+					"title": "Archivos"
+				}]
+		},
+		{
+			"title": "Monitor de facturas",
+			"icon": "sap-icon://document-text",
+			"key": "Facturas"
+		},
+		{
+			"title": "Usuario",
+			"icon": "sap-icon://customer",
+			"expanded": false,
+			"key": "Usuario",
+			"items": [
+				{
+					"title": "Crear"
+				},
+				{
+					"title": "Listar"
+				}]
+		}]
+}

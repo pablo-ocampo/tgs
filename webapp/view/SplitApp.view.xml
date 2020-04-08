@@ -1,0 +1,56 @@
+<mvc:View
+	controllerName="neo.tgs.controller.SplitApp"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.tnt">
+	<ToolPage id="toolPage">
+		<header>
+			<ToolHeader>
+				<m:Button
+					id="sideNavigationToggleButton"
+					icon="sap-icon://menu2"
+					type="Transparent"
+					press=".onSideNavButtonPress">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
+					</m:layoutData>
+				</m:Button>
+				<m:ToolbarSpacer width="20px" />
+				<ToolHeaderUtilitySeparator />
+				<m:ToolbarSpacer>
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+					</m:layoutData>
+				</m:ToolbarSpacer>
+				<m:Button text="Entelgy" type="Transparent" press=".handleUserNamePress">
+					<m:layoutData>
+						<m:OverflowToolbarLayoutData priority="NeverOverflow" />
+					</m:layoutData>
+				</m:Button>
+			</ToolHeader>
+		</header>
+		<sideContent>
+			<SideNavigation
+				expanded="true"
+				itemSelect=".onItemSelect">
+				<NavigationList items="{path: 'menu>/navigation'}">
+					<NavigationListItem
+						text="{menu>title}"
+						icon="{menu>icon}"
+						enabled="{menu>enabled}"
+						expanded="{menu>expanded}"
+						items="{menu>items}"
+						key="{menu>key}">
+						<NavigationListItem
+							text="{menu>title}"
+							key="{menu>key}"
+							enabled="{menu>enabled}" />
+					</NavigationListItem>
+				</NavigationList>
+			</SideNavigation>
+		</sideContent>
+	<mainContents>
+		
+	</mainContents>
+</ToolPage>
+</mvc:View>
