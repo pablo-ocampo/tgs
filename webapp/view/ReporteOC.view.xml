@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="neo.tgs.controller.ReporteOC"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Reporte de órdenes de compra">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="órdenes de compra" separatorStyle="GreaterThan">
+					<Link press="onPress" text="Inicio"/>
+					<Link press="onPress" text="Reportes"/>
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<Text text="Un simple texto que indica que estás en el reporte de órdenes de compra"/>
+		</content>
+	</Page>
+</mvc:View>

@@ -54,6 +54,12 @@
 			<pages>
 					<mvc:XMLView id="Inicio" viewName="neo.tgs.view.Inicio"/>
 					<mvc:XMLView id="MonitorFacturas" viewName="neo.tgs.view.MonitorFacturas"/>
+					<mvc:XMLView id="MonitorCC" viewName="neo.tgs.view.MonitorCC"/>
+					<mvc:XMLView id="IngresarFactura" viewName="neo.tgs.view.ReporteFacturas"/>
+					<mvc:XMLView id="ReporteCC" viewName="neo.tgs.view.ReporteCC"/>
+					<mvc:XMLView id="ReporteFacturas" viewName="neo.tgs.view.ReporteFacturas"/>
+					<mvc:XMLView id="ReporteOC" viewName="neo.tgs.view.ReporteOC"/>
+					<mvc:XMLView id="ReporteMP" viewName="neo.tgs.view.ReporteMP"/>
 			</pages>
 		</NavContainer>
 	</tnt:mainContents>

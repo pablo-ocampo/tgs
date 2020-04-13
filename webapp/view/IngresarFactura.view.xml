@@ -1,0 +1,20 @@
+<mvc:View
+	controllerName="neo.tgs.controller.IngresarFactura"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Ingresar factura">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="Ingresar factura" separatorStyle="GreaterThan">
+					<Link press="onPress" text="Inicio"/>
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<Text text="Un simple texto que indica que estás en ingresar factura"/>
+		</content>
+	</Page>
+</mvc:View>

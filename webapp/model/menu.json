@@ -26,22 +26,26 @@
 			"key": "Reportes",
 			"items": [
 				{
-					"title": "Órdenes de compra"
+					"title": "Órdenes de compra",
+					"key": "ReporteOC"
 				},
 				{
-					"title": "Facturas"
+					"title": "Facturas",
+					"key": "ReporteFacturas"
 				},
 				{
-					"title": "Cuenta corriente"
+					"title": "Cuenta corriente",
+					"key": "ReporteCC"
 				},
 				{
-					"title": "Maestro proveedor"
+					"title": "Maestro proveedor",
+					"key": "ReporteMP"
 				}]
 		},
 		{
 			"title": "Ingresar factura",
 			"icon": "sap-icon://sales-order",
-			"key": "Facturas"
+			"key": "IngresarFactura"
 		},
 		{
 			"title": "Monitor",
@@ -53,7 +57,8 @@
 					"key": "MonitorFacturas"
 				},
 				{
-					"title": "Cuentas corrientes"
+					"title": "Cuentas corrientes",
+					"key": "MonitorCC"
 				}]
 		},
 		{

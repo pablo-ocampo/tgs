@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="neo.tgs.controller.MonitorCC"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Monitor de cuentas corrientes">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="Monitor de cuentas corrientes" separatorStyle="GreaterThan">
+					<Link press="onPress" text="Inicio"/>
+					<Link press="onPress" text="Reportes"/>
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<Text text="Un simple texto que indica que estás en el monitor de cuentas corrientes"/>
+		</content>
+	</Page>
+</mvc:View>

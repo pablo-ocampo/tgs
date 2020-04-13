@@ -1,6 +1,7 @@
 sap.ui.define([
+	"./BaseController",
 	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+], function (BaseController, Controller) {
 	"use strict";
 
 	return Controller.extend("neo.tgs.controller.SplitApp", {
@@ -10,6 +11,14 @@ sap.ui.define([
 		
 		onItemSelect: function (oEvent) {
 			var oItem = oEvent.getParameter("item");
+			if (oItem.getHasExpander()) {
+				if (oItem.getExpanded()) {
+					oItem.collapse();
+				}
+				else {
+					oItem.expand();
+				}
+			}
 			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
 		}
 	});

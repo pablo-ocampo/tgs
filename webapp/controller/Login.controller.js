@@ -1,8 +1,8 @@
 sap.ui.define([
+	"./BaseController",
 	"sap/ui/core/mvc/Controller",
-	
 	"sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+], function (BaseController, Controller, UIComponent) {
 	"use strict";
 
 	return Controller.extend("neo.tgs.controller.Login", {
