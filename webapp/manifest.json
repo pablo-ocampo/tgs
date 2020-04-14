@@ -62,6 +62,10 @@
 			"menu": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/menu.json"
+			},
+			"Login": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Login.json"
 			}
 		},
 		"resources": {

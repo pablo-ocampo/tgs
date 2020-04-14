@@ -23,8 +23,8 @@
 							width="100%"
 							class="sapUiSmallMargin sapUiResponsiveContentPadding"
 							justifyContent="SpaceBetween">
-								<Input id="usuario" placeholder="Usuario" value="{login>/usuario}" />
-								<Input id="contrasenia" placeholder="Contraseña" value="{login>/contrasenia}" />
+								<Input id="usuario" placeholder="Usuario" value="{Login>/usuario}" />
+								<Input id="contrasenia" placeholder="Contraseña" value="{Login>/contrasenia}" />
 								<HBox justifyContent="SpaceBetween" >
 									<Link text="{i18n>olvidar_contrasenia}" press="onOlvidarContraseniaPress"/>
 									<Button id="entrar" text="Entrar" icon="sap-icon://visits" type="Emphasized" press="onPressLogin" />
