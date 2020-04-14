@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (BaseController, Controller, UIComponent) {
 	"use strict";
 
-	return Controller.extend("neo.tgs.controller.Login", {
+	return BaseController.extend("neo.tgs.controller.Login", {
 		onInit: function () {
 			
 			this.byId("usuario").addBeginIcon("sap-icon://person-placeholder");

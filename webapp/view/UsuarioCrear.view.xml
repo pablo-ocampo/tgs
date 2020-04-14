@@ -1,21 +1,21 @@
 <mvc:View
-	controllerName="neo.tgs.controller.MonitorFacturas"
+	controllerName="neo.tgs.controller.UsuarioCrear"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Monitor de Facturas">
+	<Page title="Creación de usuarios">
 		<headerContent>
 			<Button icon="sap-icon://action" tooltip="Share" />
 		</headerContent>
 		<subHeader>
 			<OverflowToolbar>
-				<Breadcrumbs currentLocationText="Monitor de facturas" separatorStyle="GreaterThan">
+				<Breadcrumbs currentLocationText="Crear" separatorStyle="GreaterThan">
 					<Link press="onPress" text="Inicio"/>
-					<Link press="onPress" text="Monitor"/>
+					<Link press="onPress" text="Usuario"/>
 				</Breadcrumbs>
 			</OverflowToolbar>
 		</subHeader>
 		<content>
-			<Text text="Un simple texto que indica que estás en el monitor de facturas"/>
+			<Text text="Un simple texto que indica que estás en la creación de usuarios"/>
 		</content>
 	</Page>
 </mvc:View>

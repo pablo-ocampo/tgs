@@ -5,8 +5,6 @@ sap.ui.define([
 ], function (Controller, UIComponent, mobileLibrary) {
 	"use strict";
 
-	// shortcut for sap.m.URLHelper
-	var URLHelper = mobileLibrary.URLHelper;
 
 	return Controller.extend("neo.tgs.controller.BaseController", {
 		/**
@@ -47,18 +45,28 @@ sap.ui.define([
 		getResourceBundle : function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
-
-		/**
-		 * Event handler when the share by E-Mail button has been clicked
-		 * @public
-		 */
-		onShareEmailPress : function () {
-			var oViewModel = (this.getModel("objectView") || this.getModel("worklistView"));
-			URLHelper.triggerEmail(
-				null,
-				oViewModel.getProperty("/shareSendEmailSubject"),
-				oViewModel.getProperty("/shareSendEmailMessage")
-			);
-		}	});
+		
+		onPress: function (oEvent) {
+			var oText = oEvent.getSource().getProperty("text");
+			var oSplitAppView = oEvent.getSource();
+			
+			while (oSplitAppView.getParent()) {
+				try  {
+					oSplitAppView.getViewName();
+				}
+				catch (error) {
+					oSplitAppView = oSplitAppView.getParent();
+					continue;
+				}
+				
+				if (oSplitAppView.getViewName() !== "neo.tgs.view.SplitApp") {
+					oSplitAppView = oSplitAppView.getParent();
+				} else {
+					oSplitAppView.byId("pageContainer").to(oSplitAppView.createId(oText));
+					break;
+				}
+			}	
+		}
+	});
 
 });

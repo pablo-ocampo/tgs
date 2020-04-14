@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, Controller) {
 	"use strict";
 
-	return Controller.extend("neo.tgs.controller.ReporteMP", {
+	return BaseController.extend("neo.tgs.controller.ReporteMP", {
 		onInit: function () {
 
 		}

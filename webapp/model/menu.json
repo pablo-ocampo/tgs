@@ -68,13 +68,16 @@
 			"key": "Usuario",
 			"items": [
 				{
-					"title": "Crear"
+					"title": "Crear",
+					"key": "UsuarioCrear"
 				},
 				{
-					"title": "Listar"
+					"title": "Listar",
+					"key": "UsuarioListar"
 				},
 				{
-					"title": "Cambio de contraseña de proveedor"
+					"title": "Cambio de contraseña de proveedor",
+					"key": "UsuarioCambioCont"
 				}]
 		}]
 }

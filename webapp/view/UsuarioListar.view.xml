@@ -1,21 +1,21 @@
 <mvc:View
-	controllerName="neo.tgs.controller.MonitorFacturas"
+	controllerName="neo.tgs.controller.UsuarioListar"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Monitor de Facturas">
+	<Page title="Listado de usuarios">
 		<headerContent>
 			<Button icon="sap-icon://action" tooltip="Share" />
 		</headerContent>
 		<subHeader>
 			<OverflowToolbar>
-				<Breadcrumbs currentLocationText="Monitor de facturas" separatorStyle="GreaterThan">
+				<Breadcrumbs currentLocationText="Listado" separatorStyle="GreaterThan">
 					<Link press="onPress" text="Inicio"/>
-					<Link press="onPress" text="Monitor"/>
+					<Link press="onPress" text="Usuario"/>
 				</Breadcrumbs>
 			</OverflowToolbar>
 		</subHeader>
 		<content>
-			<Text text="Un simple texto que indica que estás en el monitor de facturas"/>
+			<Text text="Un simple texto que indica que estás en el listado de usuarios"/>
 		</content>
 	</Page>
 </mvc:View>

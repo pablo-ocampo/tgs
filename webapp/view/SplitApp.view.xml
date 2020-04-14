@@ -55,11 +55,14 @@
 					<mvc:XMLView id="Inicio" viewName="neo.tgs.view.Inicio"/>
 					<mvc:XMLView id="MonitorFacturas" viewName="neo.tgs.view.MonitorFacturas"/>
 					<mvc:XMLView id="MonitorCC" viewName="neo.tgs.view.MonitorCC"/>
-					<mvc:XMLView id="IngresarFactura" viewName="neo.tgs.view.ReporteFacturas"/>
+					<mvc:XMLView id="IngresarFactura" viewName="neo.tgs.view.IngresarFactura"/>
 					<mvc:XMLView id="ReporteCC" viewName="neo.tgs.view.ReporteCC"/>
 					<mvc:XMLView id="ReporteFacturas" viewName="neo.tgs.view.ReporteFacturas"/>
 					<mvc:XMLView id="ReporteOC" viewName="neo.tgs.view.ReporteOC"/>
 					<mvc:XMLView id="ReporteMP" viewName="neo.tgs.view.ReporteMP"/>
+					<mvc:XMLView id="UsuarioCrear" viewName="neo.tgs.view.UsuarioCrear"/>
+					<mvc:XMLView id="UsuarioListar" viewName="neo.tgs.view.UsuarioListar"/>
+					<mvc:XMLView id="UsuarioCambioCont" viewName="neo.tgs.view.UsuarioCambioCont"/>
 			</pages>
 		</NavContainer>
 	</tnt:mainContents>

@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="neo.tgs.controller.UsuarioCambioCont"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Cambio de contraseña de proveedor">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="Cambio de contraseña" separatorStyle="GreaterThan">
+					<Link press="onPress" text="Inicio"/>
+					<Link press="onPress" text="Usuario"/>
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<Text text="Un simple texto que indica que estás en el cambio de contraseña de proveedor"/>
+		</content>
+	</Page>
+</mvc:View>

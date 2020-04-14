@@ -10,7 +10,7 @@
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Monitor de cuentas corrientes" separatorStyle="GreaterThan">
 					<Link press="onPress" text="Inicio"/>
-					<Link press="onPress" text="Reportes"/>
+					<Link press="onPress" text="Monitor"/>
 				</Breadcrumbs>
 			</OverflowToolbar>
 		</subHeader>
