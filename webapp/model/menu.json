@@ -13,10 +13,12 @@
 			"key": "Reclamos",
 			"items": [
 				{
-					"title": "Crear"
+					"title": "Crear",
+					"key": "ReclamoCrear"
 				},
 				{
-					"title": "Listar"
+					"title": "Listar",
+					"key": "ReclamoListar"
 				}]
 		},
 		{

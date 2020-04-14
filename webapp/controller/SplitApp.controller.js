@@ -20,6 +20,24 @@ sap.ui.define([
 				}
 			}
 			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
+		},
+		
+		onSideNavButtonPress: function () {
+			var oToolPage = this.byId("toolPage");
+			var bSideExpanded = oToolPage.getSideExpanded();
+
+			this._setToggleButtonTooltip(bSideExpanded);
+
+			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
+		},
+
+		_setToggleButtonTooltip: function (bLarge) {
+			var oToggleButton = this.byId("sideNavigationToggleButton");
+			if (bLarge) {
+				oToggleButton.setTooltip("Large Size Navigation");
+			} else {
+				oToggleButton.setTooltip("Small Size Navigation");
+			}
 		}
 	});
 });

@@ -63,6 +63,8 @@
 					<mvc:XMLView id="UsuarioCrear" viewName="neo.tgs.view.UsuarioCrear"/>
 					<mvc:XMLView id="UsuarioListar" viewName="neo.tgs.view.UsuarioListar"/>
 					<mvc:XMLView id="UsuarioCambioCont" viewName="neo.tgs.view.UsuarioCambioCont"/>
+					<mvc:XMLView id="ReclamoCrear" viewName="neo.tgs.view.ReclamoCrear"/>
+					<mvc:XMLView id="ReclamoListar" viewName="neo.tgs.view.ReclamoListar"/>
 			</pages>
 		</NavContainer>
 	</tnt:mainContents>

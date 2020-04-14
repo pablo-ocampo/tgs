@@ -1,0 +1,21 @@
+<mvc:View
+	controllerName="neo.tgs.controller.ReclamoCrear"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Creación de reclamos">
+		<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<Breadcrumbs currentLocationText="Crear" separatorStyle="GreaterThan">
+					<Link press="onPress" text="Inicio"/>
+					<Link press="onPress" text="Reclamos"/>
+				</Breadcrumbs>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<Text text="Un simple texto que indica que estás en la creación de reclamos"/>
+		</content>
+	</Page>
+</mvc:View>
