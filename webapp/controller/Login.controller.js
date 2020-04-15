@@ -15,12 +15,12 @@ sap.ui.define([
 		
 		onPressLogin: function () {
 			// debugger;
-			var sUsuario = this.byId("usuario").getValue();
-			var sContrasenia = this.byId("contrasenia").getValue();
+			// var sUsuario = this.byId("usuario").getValue();
+			// var sContrasenia = this.byId("contrasenia").getValue();
 			
-			if(sUsuario === "Entelgy" && sContrasenia === "123456"){
-				UIComponent.getRouterFor(this).navTo("SplitApp");
-			}
+			// if(sUsuario === "Entelgy" && sContrasenia === "123456"){
+			// 	UIComponent.getRouterFor(this).navTo("SplitApp");
+			// }
 		},
 		
 		onOlvidarContraseniaPress: function() {

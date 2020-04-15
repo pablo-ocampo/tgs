@@ -32,7 +32,7 @@
 								<HBox justifyContent="SpaceBetween" >
 									<Link text="{i18n>olvidar_contrasenia}" class="margenLinkLogin" press="onOlvidarContraseniaPress"/>
 									<Button id="entrar" text="Entrar" icon="sap-icon://visits" type="Emphasized" press="onPressLogin" />
-								</HBox>
+								</HBox>	
 							</VBox>
 						</f:content>
 					</f:Card>
