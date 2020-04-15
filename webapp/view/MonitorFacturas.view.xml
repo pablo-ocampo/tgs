@@ -31,18 +31,18 @@
 			</MessageStrip>
 			<form:SimpleForm id="SimpleFormToolbar"
 			editable="true"
-			class="sapUiResponsiveContentPadding"
+			class="sapUiResponsiveContentPadding sapUiMediumMargin"
 			layout="ResponsiveGridLayout"
-			labelSpanXL="4"
-			labelSpanL="3"
-			labelSpanM="4"
+			labelSpanXL="2"
+			labelSpanL="2"
+			labelSpanM="3"
 			labelSpanS="12"
 			adjustLabelSpan="false"
 			emptySpanXL="0"
 			emptySpanL="4"
 			emptySpanM="0"
 			emptySpanS="0"
-			columnsXL="2"
+			columnsXL="1"
 			columnsL="1"
 			columnsM="1"
 			singleContainerFullSize="false"
@@ -57,22 +57,24 @@
 					<Input value="{SupplierName}" />
 					<Label text="Factura" />
 					<Input value="{SupplierName}" />
-					<Label text="Desde" />
-					<Input value="{SupplierName}" />
-					<Label text="Hasta" />
-					<Input value="{SupplierName}" />
+					<Label text="Desde / Hasta" />
+					<Input value="{SupplierName}">
+					</Input>
+					<Input value="{SupplierName}" >
+					</Input>
 					<Label text="CUIT" />
 					<Input value="{SupplierName}" />
 					<Label text="Zona de carga" />
 					<Input value="{SupplierName}" />
 					<Label text="Estado" />
-					<Input value="{SupplierName}" />
 					
-					<Select id="country" selectedKey="{Country}">
+					<Select id="estado" selectedKey="Todas">
 						<items>
-							<core:Item text="England" key="England"/>
-							<core:Item text="Germany" key="Germany"/>
-							<core:Item text="USA" key="USA"/>
+							<core:Item text="England" key="Todas"/>
+							<core:Item text="Germany" key="Cargadas"/>
+							<core:Item text="USA" key="Procesadas"/>
+							<core:Item text="USA" key="Pagadas"/>
+							<core:Item text="USA" key="Rechazadas"/>
 						</items>
 					</Select>
 				</form:content>

@@ -15,6 +15,16 @@ sap.ui.define([
 		getRouter : function () {
 			return UIComponent.getRouterFor(this);
 		},
+		
+		onNavBack : function() {
+		
+			var sPreviousHash = History.getInstance().getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				history.go(-1);
+			} else {
+				this.getRouter().navTo("View1", {}, true);
+			}
+		},
 
 		/**
 		 * Convenience method for getting the view model by name.
