@@ -12,11 +12,15 @@
 				justifyContent="Center">
 				<items>
 					<f:Card
-						class="sapUiMediumMargin"
-						height="250px">
+						class="margenCardLogin"
+						height="250px"
+						width="300px">
 						<f:header>
-							<card:Header
-								title="{i18n>titulo_login}"/>
+							<Bar>
+								<contentMiddle>
+									<Title text="{i18n>titulo_login}"/>
+								</contentMiddle>
+							</Bar>
 						</f:header>
 						<f:content>
 							<VBox
@@ -26,7 +30,7 @@
 								<Input id="usuario" placeholder="Usuario" value="{Login>/usuario}" />
 								<Input id="contrasenia" placeholder="Contraseña" value="{Login>/contrasenia}" />
 								<HBox justifyContent="SpaceBetween" >
-									<Link text="{i18n>olvidar_contrasenia}" press="onOlvidarContraseniaPress"/>
+									<Link text="{i18n>olvidar_contrasenia}" class="margenLinkLogin" press="onOlvidarContraseniaPress"/>
 									<Button id="entrar" text="Entrar" icon="sap-icon://visits" type="Emphasized" press="onPressLogin" />
 								</HBox>
 							</VBox>

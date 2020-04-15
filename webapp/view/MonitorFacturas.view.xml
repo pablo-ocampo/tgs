@@ -52,31 +52,31 @@
 					<Title id="Title1" text="Parámetros de selección"/>
 				</Toolbar>
 			</form:toolbar>
-			<form:content >
-				<Label text="Sociedad" />
-				<Input value="{SupplierName}" />
-				<Label text="Factura" />
-				<Input value="{SupplierName}" />
-				<Label text="Desde" />
-				<Input value="{SupplierName}" />
-				<Label text="Hasta" />
-				<Input value="{SupplierName}" />
-				<Label text="CUIT" />
-				<Input value="{SupplierName}" />
-				<Label text="Zona de carga" />
-				<Input value="{SupplierName}" />
-				<Label text="Estado" />
-				<Input value="{SupplierName}" />
-				
-				<Select id="country" selectedKey="{Country}">
-					<items>
-						<core:Item text="England" key="England"/>
-						<core:Item text="Germany" key="Germany"/>
-						<core:Item text="USA" key="USA"/>
-					</items>
-				</Select>
-			</form:content>
-		</form:SimpleForm>
+				<form:content >
+					<Label text="Sociedad" />
+					<Input value="{SupplierName}" />
+					<Label text="Factura" />
+					<Input value="{SupplierName}" />
+					<Label text="Desde" />
+					<Input value="{SupplierName}" />
+					<Label text="Hasta" />
+					<Input value="{SupplierName}" />
+					<Label text="CUIT" />
+					<Input value="{SupplierName}" />
+					<Label text="Zona de carga" />
+					<Input value="{SupplierName}" />
+					<Label text="Estado" />
+					<Input value="{SupplierName}" />
+					
+					<Select id="country" selectedKey="{Country}">
+						<items>
+							<core:Item text="England" key="England"/>
+							<core:Item text="Germany" key="Germany"/>
+							<core:Item text="USA" key="USA"/>
+						</items>
+					</Select>
+				</form:content>
+			</form:SimpleForm>
 			<Text text="Un simple texto que indica que estás en el monitor de facturas"/>
 		</content>
 	</Page>
