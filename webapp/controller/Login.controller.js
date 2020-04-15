@@ -14,7 +14,17 @@ sap.ui.define([
 		},
 		
 		onPressLogin: function () {
-			UIComponent.getRouterFor(this).navTo("SplitApp");
+			// debugger;
+			var sUsuario = this.byId("usuario").getValue();
+			var sContrasenia = this.byId("contrasenia").getValue();
+			
+			if(sUsuario === "Entelgy" && sContrasenia === "123456"){
+				UIComponent.getRouterFor(this).navTo("SplitApp");
+			}
+		},
+		
+		onOlvidarContraseniaPress: function() {
+			UIComponent.getRouterFor(this).navTo("OlvidarCont");
 		}
 	});
 });

@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="neo.tgs.controller.Login"
+	controllerName="neo.tgs.controller.OlvidarCont"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f"
@@ -14,11 +14,14 @@
 					<f:Card
 						class="margenCardLogin"
 						height="250px"
-						width="300px">
+						width="400px">
 						<f:header>
 							<Bar>
+								<contentLeft>
+									<Button icon="sap-icon://nav-back" press="onNavBack"/>
+								</contentLeft>
 								<contentMiddle>
-									<Title text="{i18n>titulo_login}"/>
+									<Title text="{i18n>titulo_recup}"/>
 								</contentMiddle>
 							</Bar>
 						</f:header>
@@ -27,12 +30,15 @@
 							width="100%"
 							class="sapUiSmallMargin sapUiResponsiveContentPadding"
 							justifyContent="SpaceBetween">
+								<Text text="{i18n>msg_recup}"/>
 								<Input id="usuario" placeholder="Usuario" value="{Login>/usuario}" />
-								<Input id="contrasenia" type="Password" placeholder="Contraseña" value="{Login>/contrasenia}" />
-								<HBox justifyContent="SpaceBetween" >
-									<Link text="{i18n>olvidar_contrasenia}" class="margenLinkLogin" press="onOlvidarContraseniaPress"/>
-									<Button id="entrar" text="Entrar" icon="sap-icon://visits" type="Emphasized" press="onPressLogin" />
-								</HBox>
+								<Input id="email" type="Email" placeholder="Email" value="{Login>/email}" />
+								<FlexBox
+									justifyContent="End">
+									<items>
+										<Button id="entrar" text="Siguiente" type="Emphasized" press="onPressRecup" />
+									</items>
+								</FlexBox>
 							</VBox>
 						</f:content>
 					</f:Card>

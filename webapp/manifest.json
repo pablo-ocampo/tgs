@@ -94,6 +94,11 @@
 				"name": "SplitApp",
 				"pattern": "Main",
 				"target": "SplitApp"
+			},
+			{
+				"name": "OlvidarCont",
+				"pattern": "RecuperarContraseña",
+				"target": "OlvidarCont"
 			}],
 			"targets": {
 				"Login": {
@@ -109,6 +114,13 @@
 					"clearControlAggregation": false,
 					"viewId": "SplitApp",
 					"viewName": "SplitApp"
+				},
+				"OlvidarCont": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "OlvidarCont",
+					"viewName": "OlvidarCont"
 				}
 			}
 		}
