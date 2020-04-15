@@ -5,7 +5,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page>
+	<Page class="sapUiResponsiveContentPadding">
 		<customHeader>
 			<Bar>
 				<contentLeft>
@@ -26,21 +26,20 @@
 				text="Buscar por rango de fechas o por número de factura"
 				type="Information"
 				showIcon="true"
-				customIcon="sap-icon://appointment-2"
-				class="sapUiMediumMargin">
+				customIcon="sap-icon://appointment-2">
 			</MessageStrip>
 			<form:SimpleForm id="SimpleFormToolbar"
 			editable="true"
-			class="sapUiResponsiveContentPadding sapUiMediumMargin"
+			class="sapUiResponsiveContentPadding"
 			layout="ResponsiveGridLayout"
 			labelSpanXL="2"
-			labelSpanL="2"
+			labelSpanL="3"
 			labelSpanM="3"
 			labelSpanS="12"
 			adjustLabelSpan="false"
 			emptySpanXL="0"
 			emptySpanL="4"
-			emptySpanM="0"
+			emptySpanM="3"
 			emptySpanS="0"
 			columnsXL="1"
 			columnsL="1"
@@ -54,18 +53,36 @@
 			</form:toolbar>
 				<form:content >
 					<Label text="Sociedad" />
-					<Input id="inpSociedad" value="{SupplierName}" />
+					<Select id="inpSociedad" selectedKey="GDS">
+						<items>
+							<core:Item text="Trans. de Gas del Sur" key="GDS"/>
+							<core:Item text="Telcosur" key="TELCOSUR"/>
+						</items>
+					</Select>
 					<Label text="Factura" />
-					<Input id="inpFactura" value="{SupplierName}" />
+					<Input id="inpFactura" value="{SupplierName}" placeholder="Ej: 0001Z00000001" />
 					<Label text="Desde / Hasta" />
-					<Input id="inpDesde" value="{SupplierName}">
-					</Input>
-					<Input id="inpHasta" value="{SupplierName}" >
-					</Input>
+					<DatePicker
+						id="inpDesde"
+						placeholder="dd/mm/aaaa"
+						change="handleChange"/>
+					<DatePicker
+						id="inpHasta"
+						placeholder="dd/mm/aaaa"
+						change="handleChange"/>
 					<Label text="CUIT" />
-					<Input id="inpCuit" value="{SupplierName}" />
+					<Input id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
 					<Label text="Zona de carga" />
-					<Input id="inpZona" value="{SupplierName}" />
+					<Select id="inpZona" selectedKey="NO">
+						<items>
+							<core:Item text="No asignar" key="NO"/>
+							<core:Item text="Neuquen - Oeste" key="NQ-O"/>
+							<core:Item text="Comodoro Rivadavia - Sur 1" key="CR-S1"/>
+							<core:Item text="Rio Gallegos - Sur 2" key="RG-S2"/>
+							<core:Item text="Capital Federal" key="CF"/>
+							<core:Item text="Bahia Blanca - Cerri" key="BB-C"/>
+						</items>
+					</Select>
 					<Label text="Estado" />
 					
 					<Select id="inpEstado" selectedKey="Todas">
