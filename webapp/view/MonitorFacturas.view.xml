@@ -54,27 +54,27 @@
 			</form:toolbar>
 				<form:content >
 					<Label text="Sociedad" />
-					<Input value="{SupplierName}" />
+					<Input id="inpSociedad" value="{SupplierName}" />
 					<Label text="Factura" />
-					<Input value="{SupplierName}" />
+					<Input id="inpFactura" value="{SupplierName}" />
 					<Label text="Desde / Hasta" />
-					<Input value="{SupplierName}">
+					<Input id="inpDesde" value="{SupplierName}">
 					</Input>
-					<Input value="{SupplierName}" >
+					<Input id="inpHasta" value="{SupplierName}" >
 					</Input>
 					<Label text="CUIT" />
-					<Input value="{SupplierName}" />
+					<Input id="inpCuit" value="{SupplierName}" />
 					<Label text="Zona de carga" />
-					<Input value="{SupplierName}" />
+					<Input id="inpZona" value="{SupplierName}" />
 					<Label text="Estado" />
 					
-					<Select id="estado" selectedKey="Todas">
+					<Select id="inpEstado" selectedKey="Todas">
 						<items>
-							<core:Item text="England" key="Todas"/>
-							<core:Item text="Germany" key="Cargadas"/>
-							<core:Item text="USA" key="Procesadas"/>
-							<core:Item text="USA" key="Pagadas"/>
-							<core:Item text="USA" key="Rechazadas"/>
+							<core:Item text="Todas" key="Todas"/>
+							<core:Item text="Cargadas" key="Cargadas"/>
+							<core:Item text="Procesadas" key="Procesadas"/>
+							<core:Item text="Pagadas" key="Pagadas"/>
+							<core:Item text="Rechazadas" key="Rechazadas"/>
 						</items>
 					</Select>
 				</form:content>
