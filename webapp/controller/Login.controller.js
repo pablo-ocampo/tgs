@@ -19,7 +19,7 @@ sap.ui.define([
 			// var sContrasenia = this.byId("contrasenia").getValue();
 			
 			// if(sUsuario === "Entelgy" && sContrasenia === "123456"){
-			// 	UIComponent.getRouterFor(this).navTo("SplitApp");
+			 UIComponent.getRouterFor(this).navTo("SplitApp");
 			// }
 		},
 		
