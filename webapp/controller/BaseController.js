@@ -22,7 +22,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				history.go(-1);
 			} else {
-				this.getRouter().navTo("View1", {}, true);
+				this.getRouter().navTo("Login", {}, true);
 			}
 		},
 
