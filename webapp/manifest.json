@@ -84,7 +84,7 @@
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "OneWay",
 					"defaultCountMode": "Request",
-					"useBatch": true
+					"useBatch": false
 				},
 				"dataSource": "Z_INGRESO_FAC_VIM_EXT_SRV",
 				"preload": true

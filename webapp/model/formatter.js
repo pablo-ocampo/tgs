@@ -20,6 +20,7 @@ sap.ui.define([], function () {
 			if (!sValue) {
 				return "";
 			}
+			sValue.getDate();
 			debugger;
 			return sValue;
 		}

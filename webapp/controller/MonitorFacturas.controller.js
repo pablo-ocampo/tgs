@@ -16,21 +16,47 @@ sap.ui.define([
 					busy : true,
 					delay : 0
 				});
-			var that = this;
 				
 			this.getOwnerComponent().getModel().metadataLoaded().then(function () {
 					// Restore original busy indicator delay for the object view
 					oViewModel.setProperty("/delay", iOriginalBusyDelay);
-					that._onListMatched();
 				}
 			);
 		},
 		
 		onPressBuscarFactura: function() {
-			this.createId("Cards");
-			var oCards = $( "#Cards" )[ 0 ];
-			oCards.scrollIntoView();
+			// this.createId("Cards");
+			// var oCards = $( "#Cards" );
+			// oCards.scrollIntoView();
+			var sValueSoc = this.byId("inpSociedad").getSelectedKey();
+			var sValueFactura = this.byId("inpFactura").getValue();
+			var sValueFecha1 = this.byId("inpDesde").getDateValue();
+			var sValueFecha2 = this.byId("inpHasta").getDateValue();
+			var sValueCuit = this.byId("inpCuit").getValue();
+			var sValueEstado = this.byId("inpEstado").getSelectedKey();
 			
+			var oFilterSociedad = new Filter(
+				"Bukrs",
+				sap.ui.model.FilterOperator.EQ, sValueSoc
+			);
+			var oFilterFactura = new Filter(
+				"Xblnr",
+				sap.ui.model.FilterOperator.EQ, sValueFactura
+			);
+			var oFilterFecha = new Filter(
+				"Bldat",
+				sap.ui.model.FilterOperator.BT, sValueFecha1, sValueFecha2
+			);
+			var oFilterCuit = new Filter(
+				"Stcd1",
+				sap.ui.model.FilterOperator.EQ, sValueCuit
+			);
+			var oFilterEstado = new Filter(
+				"Estado",
+				sap.ui.model.FilterOperator.EQ, sValueEstado
+			);
+			this._onListMatched(oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado);
+			// debugger;
 			
 		},
 		
@@ -47,7 +73,7 @@ sap.ui.define([
 			this.byId("mainTable").getBinding("items").filter([oFilter]);
 		},
 		
-		_onListMatched : function (oEvent) {
+		_onListMatched : function (oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado) {
 		
 			// var sLocalId =  oEvent.getParameter("arguments").localId;
 			// var mode = oEvent.getParameter("arguments").mode;
@@ -63,11 +89,8 @@ sap.ui.define([
 			var oTable = this.getView().byId("mainTable");
 			oTable.bindItems({	path: "/datosCabeceraSet",
 								template: this.byId("item"),
-								templateShareable: true
-			// 					filters: [oFilter2],
-			// 					parameters: {
-			// 						expand: "zCliAdic"
-								// }
+								templateShareable: true,
+								filters: [oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado]
 			});
 		},
 		
