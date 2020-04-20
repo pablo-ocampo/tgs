@@ -1,8 +1,10 @@
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
-	"../model/formatter"
-], function (BaseController, JSONModel, formatter) {
+	"../model/formatter",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("neo.tgs.controller.MonitorFacturas", {
@@ -40,45 +42,44 @@ sap.ui.define([
 			}
 			var oFilter = new Filter(
 				"Xblnr",
-				sap.ui.model.FilterOperator.Contains, sValue,
-				caseSensitive = false
+				sap.ui.model.FilterOperator.Contains, sValue
 			);
 			this.byId("mainTable").getBinding("items").filter([oFilter]);
 		},
 		
 		_onListMatched : function (oEvent) {
 		
-			var sLocalId =  oEvent.getParameter("arguments").localId;
-			var mode = oEvent.getParameter("arguments").mode;
-			var oFilter = new Filter(
-				"Localidad",
-				sap.ui.model.FilterOperator.EQ, sLocalId
-			);
-			var oFilter2 = new Filter(
-				"Modo",
-				sap.ui.model.FilterOperator.EQ, mode
-			);
+			// var sLocalId =  oEvent.getParameter("arguments").localId;
+			// var mode = oEvent.getParameter("arguments").mode;
+			// var oFilter = new Filter(
+			// 	"Localidad",
+			// 	sap.ui.model.FilterOperator.EQ, sLocalId
+			// );
+			// var oFilter2 = new Filter(
+			// 	"Modo",
+			// 	sap.ui.model.FilterOperator.EQ, mode
+			// );
 			
 			var oTable = this.getView().byId("mainTable");
 			oTable.bindItems({	path: "/datosCabeceraSet",
 								template: this.byId("item"),
 								templateShareable: true
-								filters: [oFilter,oFilter2],
-								parameters: {
-									expand: "zCliAdic"
-								}
+			// 					filters: [oFilter2],
+			// 					parameters: {
+			// 						expand: "zCliAdic"
+								// }
 			});
 		},
 		
 		_bindView : function (sListPath) {
-			debugger;
+			// debugger;
 			var oViewModel = this.getModel("listView"),
 				oDataModel = this.getModel();
 			this.getView().bindElement({
 				path: sListPath,
-				parameters: {
-						expand: "zClientesSet"
-					},
+				// parameters: {
+				// 		expand: "zClientesSet"
+				// 	},
 				events: {
 					change: this._onBindingChange.bind(this),
 					dataRequested: function () {
@@ -95,6 +96,6 @@ sap.ui.define([
 					}
 				}
 			});
-		},
+		}
 	});
 });
