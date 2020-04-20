@@ -187,7 +187,7 @@
 						<Text text="Proveedor"/>
 						 <!--demandPopin="true" minScreenWidth="1440px"-->
 					</Column>
-					<Column id="estadoColumn" hAlign="Begin" width="5em">
+					<Column id="estadoColumn" hAlign="Begin" width="7em">
 						<Text text="Estado"/>
 					</Column>
 					<!--<Column id="fColumn" hAlign="Center" width="3em">-->
