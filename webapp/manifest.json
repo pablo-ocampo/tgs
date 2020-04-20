@@ -12,9 +12,17 @@
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
+		},
+		"dataSources": {
+			"Z_INGRESO_FAC_VIM_EXT_SRV": {
+				"uri": "/sap/opu/odata/sap/Z_INGRESO_FAC_VIM_EXT_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,7 +39,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -66,12 +73,29 @@
 			"Login": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/Login.json"
+			},
+			"datosPrueba": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/datosPrueba.json"
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "Z_INGRESO_FAC_VIM_EXT_SRV",
+				"preload": true
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -81,25 +105,26 @@
 				"viewPath": "neo.tgs.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-    			 "clearTarget": "false",
+				"clearTarget": "false",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "Login",
-				"pattern": "",
-				"target": "Login"
-				
-			},
-			{
-				"name": "SplitApp",
-				"pattern": "Main",
-				"target": "SplitApp"
-			},
-			{
-				"name": "OlvidarCont",
-				"pattern": "RecuperarContraseña",
-				"target": "OlvidarCont"
-			}],
+			"routes": [
+				{
+					"name": "Login",
+					"pattern": "",
+					"target": "Login"
+				},
+				{
+					"name": "SplitApp",
+					"pattern": "Main",
+					"target": "SplitApp"
+				},
+				{
+					"name": "OlvidarCont",
+					"pattern": "RecuperarContraseña",
+					"target": "OlvidarCont"
+				}
+			],
 			"targets": {
 				"Login": {
 					"viewType": "XML",

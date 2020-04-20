@@ -73,21 +73,21 @@
 							placeholder="dd/mm/aaaa"
 							change="handleChange"/>
 						<Label text="CUIT" labelFor="hbox1"/>
-						<HBox alignItems="Center" height="50px" renderType="Bare">
+						<HBox alignItems="Center" height="45px" renderType="Bare">
 								<Input width="75%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
 								<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						</HBox>
-						<Label text="Zona de carga" />
-						<Select id="inpZona" selectedKey="NO">
-							<items>
-								<core:Item text="No asignar" key="NO"/>
-								<core:Item text="Neuquen - Oeste" key="NQ-O"/>
-								<core:Item text="Comodoro Rivadavia - Sur 1" key="CR-S1"/>
-								<core:Item text="Rio Gallegos - Sur 2" key="RG-S2"/>
-								<core:Item text="Capital Federal" key="CF"/>
-								<core:Item text="Bahia Blanca - Cerri" key="BB-C"/>
-							</items>
-						</Select>
+						<!--<Label text="Zona de carga" />-->
+						<!--<Select id="inpZona" selectedKey="NO">-->
+						<!--	<items>-->
+						<!--		<core:Item text="No asignar" key="NO"/>-->
+						<!--		<core:Item text="Neuquen - Oeste" key="NQ-O"/>-->
+						<!--		<core:Item text="Comodoro Rivadavia - Sur 1" key="CR-S1"/>-->
+						<!--		<core:Item text="Rio Gallegos - Sur 2" key="RG-S2"/>-->
+						<!--		<core:Item text="Capital Federal" key="CF"/>-->
+						<!--		<core:Item text="Bahia Blanca - Cerri" key="BB-C"/>-->
+						<!--	</items>-->
+						<!--</Select>-->
 						<Label text="Estado" />
 						
 						<Select id="inpEstado" selectedKey="Todas">
@@ -101,32 +101,177 @@
 						</Select>
 					</form:content>
 				</form:SimpleForm>
-				<VBox alignItems="Center">
+				<VBox alignItems="Center" class="sapUiLargeMarginBottom">
 					<items>
 						<Button type="Emphasized" icon="sap-icon://search" text="Buscar" press="onPressBuscarFactura" />
 					</items>
 				</VBox>
 			</VBox>
-			<GenericTile class="sapUiTinyMargin tileLayout" header="Cargadas" subheader="Expenses" press="press" tooltip="asd">
-				<TileContent footer="Filtrar">
-					<NumericContent value="234" icon="sap-icon://line-charts" />
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMargin tileLayout" header="Cargadas" subheader="Expenses" press="press">
-				<TileContent footer="Filtrar">
-					<NumericContent value="234" icon="sap-icon://line-charts" />
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMargin tileLayout" header="Cargadas" subheader="Expenses" press="press">
-				<TileContent footer="Filtrar">
-					<NumericContent value="234" icon="sap-icon://line-charts" />
-				</TileContent>
-			</GenericTile>
-			<GenericTile class="sapUiTinyMargin tileLayout" header="Cargadas" subheader="Expenses" press="press">
-				<TileContent footer="Filtrar">
-					<NumericContent value="234" icon="sap-icon://line-charts" />
-				</TileContent>
-			</GenericTile>
+			<HBox justifyContent="Center" id="Cards" >
+				<GenericTile class="tileLayout cardCargada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar cargadas" header="Cargadas" press="onPressCard">
+					<TileContent footer="Filtrar">
+						<NumericContent value="234" icon="sap-icon://pushpin-on" />
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="tileLayout cardProcesada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar procesadas" header="Procesadas" press="onPressCard">
+					<TileContent footer="Filtrar">
+						<NumericContent value="234" icon="sap-icon://timesheet" />
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="tileLayout cardPagada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar pagadas" header="Pagadas" press="onPressCard">
+					<TileContent footer="Filtrar">
+						<NumericContent value="234" valueColor="Good" icon="sap-icon://paid-leave"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="tileLayout cardRechazada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar rechazadas" header="Rechazadas" press="onPressCard">
+					<TileContent footer="Filtrar">
+						<NumericContent value="234" valueColor="Error" icon="sap-icon://unpaid-leave" />
+					</TileContent>
+				</GenericTile>
+			</HBox>
+			<Table alternateRowColors="true" id="mainTable" class="sapUiLargeMarginTopBottom">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title
+							id="tableHeader"
+							text="{i18n>monitorFacturasTituloTabla}"
+							level="H3"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="Búsqueda"
+							search=".onSearch"
+							liveChange=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData
+									maxWidth="200px"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="nroRefColumn"  hAlign="Center" width="9em"
+								>
+						<Text text="Nro. Referencia"/>
+					</Column>
+					<Column id="importeColumn" hAlign="End" width="5em">
+						<Text text="Importe"/>
+					</Column>
+					<!--<Column id="monColumn" hAlign="Center" width="4em">-->
+					<!--	<Text text="Mon."/>-->
+					<!--</Column>-->
+					<Column id="TCColumn" hAlign="End" width="4em"
+								minScreenWidth="Tablet">
+						<Text text="TC"/>
+					</Column>
+					<Column id="fechaDocColumn" hAlign="Center" width="7em">
+						<Text text="Fecha Doc."/>
+					</Column>
+					<Column id="fechaVenColumn" hAlign="Center" width="7em">
+						<Text text="Fecha Vto."/>
+					</Column>
+					<Column id="nroDocColumn" hAlign="End" width="7em" >
+						<Text text="Nro. Doc."/>
+					</Column>
+					<Column id="ejerColumn" hAlign="Center" width="4em">
+						<Text text="Ejer."/>
+					</Column>
+					<Column id="socColumn" hAlign="Begin" width="4em">
+						<Text text="Soc."/>
+					</Column>
+					<!--<Column id="zonaCargaColumn" hAlign="Begin">-->
+					<!--	<Text text="Zona carga"/>-->
+					<!--</Column>-->
+					<Column id="proveedorColumn" hAlign="Begin">
+						<Text text="Proveedor"/>
+						 <!--demandPopin="true" minScreenWidth="1440px"-->
+					</Column>
+					<Column id="estadoColumn" hAlign="Begin" width="5em">
+						<Text text="Estado"/>
+					</Column>
+					<!--<Column id="fColumn" hAlign="Center" width="3em">-->
+					<!--	<Text text="F"/>-->
+					<!--</Column>-->
+					<!--<Column id="rColumn" hAlign="Center" width="3em">-->
+					<!--	<Text text="R"/>-->
+					<!--</Column>-->
+					<!--<Column id="ncColumn" hAlign="Center" width="3em">-->
+					<!--	<Text text="NC"/>-->
+					<!--</Column>-->
+					<!--<Column id="borrarColumn" hAlign="Center" width="3em">-->
+					<!--</Column>-->
+				</columns>
+				
+				<!--<items>-->
+				<!--	<ColumnListItem-->
+				<!--		type="Inactive">-->
+				<!--		<cells>-->
+				<!--			<ObjectIdentifier-->
+				<!--				title="{datosPrueba>NroRef}"/>-->
+				<!--			<ObjectNumber-->
+				<!--						number="{-->
+				<!--							path: 'datosPrueba>Importe',-->
+				<!--							formatter: '.formatter.numberUnit'-->
+				<!--						}"-->
+				<!--						unit="{datosPrueba>CurrencyCode}"/>-->
+							<!--<Text text="{datosPrueba>CurrencyCode}"/>-->
+				<!--			<ObjectNumber-->
+				<!--						number="{-->
+				<!--							path: 'datosPrueba>TC',-->
+				<!--							formatter: '.formatter.numberUnit'-->
+				<!--						}"/>-->
+				<!--			<Text text="{datosPrueba>Fecha1}"/>-->
+				<!--			<Text text="{datosPrueba>Fecha2}"/>-->
+				<!--			<ObjectNumber-->
+				<!--						number="{datosPrueba>NroDoc}"/>-->
+				<!--			<Text text="{datosPrueba>Ejer}"/>-->
+				<!--			<Text text="{datosPrueba>Soc}"/>-->
+							<!--<Text text="{datosPrueba>ZonaCarga}"/>-->
+				<!--			<Text text="{datosPrueba>Proveedor}"/>-->
+				<!--			<Text text="{datosPrueba>Estado}"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+				<!--		</cells>-->
+				<!--	</ColumnListItem>-->
+				<!--</items>-->
+				<dependents>
+					<ColumnListItem id="item"
+						type="Inactive">
+						<cells>
+							<ObjectIdentifier
+								title="{Xblnr}"/>
+							<ObjectNumber
+										number="{
+											path: 'datosPrueba>Rmwwr',
+											formatter: '.formatter.numberUnit'
+										}"
+										unit="{Waers}"/>
+							<!--<Text text="{datosPrueba>CurrencyCode}"/>-->
+							<ObjectNumber
+										number="{
+											path: 'datosPrueba>TC',
+											formatter: '.formatter.numberUnit'
+										}"/>
+							<Text text="{Bldat}"/>
+							<Text text="{FechaVto}"/>
+							<ObjectNumber
+										number="{Belnr}"/>
+							<Text text="{Gjahr}"/>
+							<Text text="{datosPrueba>Soc}"/>
+							<!--<Text text="{datosPrueba>ZonaCarga}"/>-->
+							<Text text="{Name1}"/>
+							<Text text="{Estado}"/>
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+							<!--<Button icon="sap-icon://unpaid-leave"/>-->
+						</cells>
+					</ColumnListItem>
+				</dependents>
+			</Table>
 		</content>
 	</Page>
 </mvc:View>

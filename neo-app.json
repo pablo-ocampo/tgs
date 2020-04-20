@@ -36,6 +36,15 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "testNEO",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "testNEO"
     }
   ],
   "sendWelcomeFileRedirect": true

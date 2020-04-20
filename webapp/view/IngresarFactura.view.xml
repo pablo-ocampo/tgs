@@ -1,8 +1,11 @@
 <mvc:View
 	controllerName="neo.tgs.controller.IngresarFactura"
 	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Ingresar factura">
+	<Page title="Ingresar factura" class="sapUiResponsiveContentPadding">
 		<headerContent>
 			<Button icon="sap-icon://action" tooltip="Share" />
 		</headerContent>
@@ -14,6 +17,68 @@
 			</OverflowToolbar>
 		</subHeader>
 		<content>
+			<VBox>
+				<form:SimpleForm id="SimpleFormToolbar"
+				editable="true"
+				class="sapUiResponsiveContentPadding"
+				layout="ResponsiveGridLayout"
+				labelSpanXL="2"
+				labelSpanL="3"
+				labelSpanM="3"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				emptySpanXL="1"
+				emptySpanL="1"
+				emptySpanM="1"
+				emptySpanS="0"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="false"
+				ariaLabelledBy="Title1" >
+				<form:toolbar>
+					<Toolbar id="TB1">
+						<Title id="Title1" text="Parámetros de selección"/>
+					</Toolbar>
+				</form:toolbar>
+					<form:content >
+						<Label text="CUIT" labelFor="hbox1"/>
+						<HBox alignItems="Center" height="45px" renderType="Div">
+								<Input width="105%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
+								<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
+						</HBox>
+						<Label text="Fecha de factura" />
+						<DatePicker
+							id="inpDesde"
+							placeholder="dd/mm/aaaa"
+							change="handleChange"/>
+						<Label text="Orden de compra" />
+						<Input id="inpOrdenCompra" placeholder="Ej: 0123456789" />
+						<Label text="Factura" />
+						<Input id="inpFactura" placeholder="Ej: 0001Z00000001" />
+						<Label text="Importe - Moneda" />
+						<Input id="inpImporte">
+						</Input>
+						<Input id="inpMoneda" placeholder="ARS" >
+							<layoutData>
+								<l:GridData span="XL1 L1 M1 S2" />
+							</layoutData>
+						</Input>
+						<Label text="Clase de documento" />
+							<Select id="inpClaseDoc" selectedKey="NO">
+								<items>
+									<core:Item text="Factura" key="NO"/>
+									<core:Item text="Orden de compra" key="NQ-O"/>
+								</items>
+							</Select>
+					</form:content>
+				</form:SimpleForm>
+				<VBox alignItems="Center" class="sapUiLargeMarginBottom">
+					<items>
+						<Button type="Emphasized" icon="sap-icon://search" text="Buscar" press="onPressBuscarFactura" />
+					</items>
+				</VBox>
+			</VBox>
 			<Text text="Un simple texto que indica que estás en ingresar factura"/>
 		</content>
 	</Page>

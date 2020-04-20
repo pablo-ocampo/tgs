@@ -7,3 +7,15 @@
 .margenCardLogin {
 	margin-top: 130px;
 }
+
+.cardProcesada {
+	background: #d9edf7;
+}
+
+.cardPagada {
+	background: #dff0d8;
+}
+
+.cardRechazada {
+	background: #f2dede;
+}
