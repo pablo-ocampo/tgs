@@ -20,9 +20,7 @@ sap.ui.define([], function () {
 			if (!sValue) {
 				return "";
 			}
-			var a = sValue.getDate();
-			debugger;
-			return sValue;
+			return sValue.toLocaleDateString();
 		}
 
 	};

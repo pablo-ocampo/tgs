@@ -257,7 +257,8 @@
 							<!--			}"/>-->
 							<Text text="{	path: 'Bldat',
 											formatter: '.formatter.dateSap'}"/>
-							<Text text="{FechaVto}"/>
+							<Text text="{	path: 'FechaVto',
+											formatter: '.formatter.dateSap'}"/>
 							<ObjectNumber
 										number="{Belnr}"/>
 							<Text text="{Gjahr}"/>
