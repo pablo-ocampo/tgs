@@ -71,6 +71,15 @@ sap.ui.define([
 				sap.ui.model.FilterOperator.Contains, sValue
 			);
 			this.byId("mainTable").getBinding("items").filter([oFilter]);
+			var oTable = this.getView().byId("mainTable");
+			oTable.bindRows({
+			   path: "/datosCabeceraSet",
+			   template: this.byId("item"),
+						templateShareable: true,
+					   parameters: {
+					      operationMode: "Client"
+					   }
+		});
 		},
 		
 		_onListMatched : function (oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado) {
