@@ -42,11 +42,9 @@
 					</Toolbar>
 				</form:toolbar>
 					<form:content >
-						<Label text="CUIT" labelFor="hbox1"/>
-						<HBox alignItems="Center" height="45px" renderType="Div">
-								<Input width="105%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
-								<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
-						</HBox>
+						<Label text="CUIT" labelFor="inpCuit"/>
+						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
+						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<Label text="Fecha de factura" />
 						<DatePicker
 							id="inpDesde"
@@ -75,11 +73,10 @@
 				</form:SimpleForm>
 				<VBox alignItems="Center" class="sapUiLargeMarginBottom">
 					<items>
-						<Button type="Emphasized" icon="sap-icon://search" text="Buscar" press="onPressBuscarFactura" />
+						<Button type="Emphasized" icon="sap-icon://create-form" text="Ingresar" press="onPressIngresarFactura" />
 					</items>
 				</VBox>
 			</VBox>
-			<Text text="Un simple texto que indica que estás en ingresar factura"/>
 		</content>
 	</Page>
 </mvc:View>

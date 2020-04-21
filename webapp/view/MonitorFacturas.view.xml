@@ -32,7 +32,6 @@
 			<VBox>
 				<form:SimpleForm id="SimpleFormToolbar"
 				editable="true"
-				class="sapUiResponsiveContentPadding"
 				layout="ResponsiveGridLayout"
 				labelSpanXL="2"
 				labelSpanL="3"
@@ -55,7 +54,7 @@
 				</form:toolbar>
 					<form:content >
 						<Label text="Sociedad" />
-						<Select id="inpSociedad" selectedKey="GDS">
+						<Select id="inpSociedad" required="true" selectedKey="GDS">
 							<items>
 								<core:Item text="Trans. de Gas del Sur" key="1000"/>
 								<core:Item text="Telcosur" key="2000"/>
@@ -66,17 +65,24 @@
 						<Label text="Desde / Hasta" />
 						<DatePicker
 							id="inpDesde"
+							displayFormat="dd/MM/yyyy"
+							valueFormat="dd/MM/yyyy"
 							placeholder="dd/mm/aaaa"
 							change="handleChange"/>
 						<DatePicker
 							id="inpHasta"
+							displayFormat="dd/MM/yyyy"
+							valueFormat="dd/MM/yyyy"
 							placeholder="dd/mm/aaaa"
 							change="handleChange"/>
-						<Label text="CUIT" labelFor="hbox1"/>
-						<HBox alignItems="Center" height="45px" renderType="Bare">
-								<Input width="75%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
-								<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
-						</HBox>
+						<Label text="CUIT" labelFor="inpCuit"/>
+						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
+						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
+						<!--<Label text="CUIT" labelFor="inpCuit"/>-->
+						<!--<HBox alignItems="Center" height="50px" renderType="Bare">-->
+						<!--		<Input width="75%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />-->
+						<!--		<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>-->
+						<!--</HBox>-->
 						<!--<Label text="Zona de carga" />-->
 						<!--<Select id="inpZona" selectedKey="NO">-->
 						<!--	<items>-->
@@ -90,7 +96,7 @@
 						<!--</Select>-->
 						<Label text="Estado" />
 						
-						<Select id="inpEstado" selectedKey="Todas">
+						<Select id="inpEstado" required="true" selectedKey="Todas">
 							<items>
 								<core:Item text="Todas" key="Todas"/>
 								<core:Item text="Cargadas" key="Cargadas"/>
@@ -140,8 +146,7 @@
 						<SearchField
 							id="searchField"
 							tooltip="Búsqueda"
-							search=".onSearch"
-							liveChange=".onSearch">
+							search=".onSearch">
 							<layoutData>
 								<OverflowToolbarLayoutData
 									maxWidth="200px"
@@ -155,7 +160,7 @@
 								>
 						<Text text="Nro. Referencia"/>
 					</Column>
-					<Column id="importeColumn" hAlign="End" width="5em">
+					<Column id="importeColumn" hAlign="End" width="7em">
 						<Text text="Importe"/>
 					</Column>
 					<!--<Column id="monColumn" hAlign="Center" width="4em">-->
@@ -171,7 +176,7 @@
 					<Column id="fechaVenColumn" hAlign="Center" width="7em">
 						<Text text="Fecha Vto."/>
 					</Column>
-					<Column id="nroDocColumn" hAlign="End" width="7em" >
+					<Column id="nroDocColumn" hAlign="Begin" width="7em" >
 						<Text text="Nro. Doc."/>
 					</Column>
 					<Column id="ejerColumn" hAlign="Center" width="4em">
@@ -187,7 +192,7 @@
 						<Text text="Proveedor"/>
 						 <!--demandPopin="true" minScreenWidth="1440px"-->
 					</Column>
-					<Column id="estadoColumn" hAlign="Begin" width="7em">
+					<Column id="estadoColumn" hAlign="Center" width="7em">
 						<Text text="Estado"/>
 					</Column>
 					<!--<Column id="fColumn" hAlign="Center" width="3em">-->
@@ -262,9 +267,9 @@
 							<ObjectNumber
 										number="{Belnr}"/>
 							<Text text="{Gjahr}"/>
-							<Text text="{Bukrs}"/>
+							<Text text="{= ${Bukrs} === '1000' ? 'TGSA' : 'OTRA' }"/>
 							<!--<Text text="{datosPrueba>ZonaCarga}"/>-->
-							<Text text="{Name1}"/>
+							<ObjectAttribute text="{Stcd1} - {Name1}"/>
 							<Text text="{Estado}"/>
 							<!--<Button icon="sap-icon://unpaid-leave"/>-->
 							<!--<Button icon="sap-icon://unpaid-leave"/>-->
