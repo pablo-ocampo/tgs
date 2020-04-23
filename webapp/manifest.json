@@ -82,7 +82,7 @@
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
-					"defaultBindingMode": "OneWay",
+					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
 					"useBatch": false
 				},
@@ -103,8 +103,6 @@
 				"viewType": "XML",
 				"async": true,
 				"viewPath": "neo.tgs.view",
-				"controlAggregation": "pages",
-				"controlId": "app",
 				"clearTarget": "false",
 				"clearControlAggregation": false
 			},
@@ -117,7 +115,74 @@
 				{
 					"name": "SplitApp",
 					"pattern": "Main",
-					"target": "SplitApp"
+					"target": ["SplitApp"],
+					"subroutes": [
+						{
+							"pattern": "Main/Inicio",
+							"name": "Inicio",
+							"target": ["Inicio"]
+						},
+						{
+							"pattern": "Main/ReclamoCrear",
+							"name": "ReclamoCrear",
+							"target": ["ReclamoCrear"]
+						},
+						{
+							"pattern": "Main/ReclamoListar",
+							"name": "ReclamoListar",
+							"target": ["ReclamoListar"]
+						},
+						{
+							"pattern": "Main/ReporteOC",
+							"name": "ReporteOC",
+							"target": ["ReporteOC"]
+						},
+						{
+							"pattern": "Main/ReporteFacturas",
+							"name": "ReporteFacturas",
+							"target": ["ReporteFacturas"]
+						},
+						{
+							"pattern": "Main/ReporteCC",
+							"name": "ReporteCC",
+							"target": ["ReporteCC"]
+						},
+						{
+							"pattern": "Main/ReporteMP",
+							"name": "ReporteMP",
+							"target": ["ReporteMP"]
+						},
+						{
+							"pattern": "Main/IngresarFactura",
+							"name": "IngresarFactura",
+							"target": ["IngresarFactura"]
+						},
+						{
+							"pattern": "Main/MonitorFacturas",
+							"name": "MonitorFacturas",
+							"target": ["MonitorFacturas"]
+						},
+						{
+							"pattern": "Main/MonitorCC",
+							"name": "MonitorCC",
+							"target": ["MonitorCC"]
+						},
+						{
+							"pattern": "Main/UsuarioCrear",
+							"name": "UsuarioCrear",
+							"target": ["UsuarioCrear"]
+						},
+						{
+							"pattern": "Main/UsuarioListar",
+							"name": "UsuarioListar",
+							"target": ["UsuarioListar"]
+						},
+						{
+							"pattern": "Main/UsuarioCambioCont",
+							"name": "UsuarioCambioCont",
+							"target": ["UsuarioCambioCont"]
+						}
+					]
 				},
 				{
 					"name": "OlvidarCont",
@@ -131,21 +196,144 @@
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewId": "Login",
-					"viewName": "Login"
+					"viewName": "Login",
+					"controlId": "app",
+					"controlAggregation": "pages"
 				},
 				"SplitApp": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewId": "SplitApp",
-					"viewName": "SplitApp"
+					"viewName": "SplitApp",
+					"controlId": "app",
+					"controlAggregation": "pages"
 				},
 				"OlvidarCont": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewId": "OlvidarCont",
-					"viewName": "OlvidarCont"
+					"viewName": "OlvidarCont",
+					"controlId": "app",
+					"controlAggregation": "pages"
+				},
+				"Inicio": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Inicio",
+					"viewName": "Inicio",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReclamoCrear": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReclamoCrear",
+					"viewName": "ReclamoCrear",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReclamoListar": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReclamoListar",
+					"viewName": "ReclamoListar",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReporteOC": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReporteOC",
+					"viewName": "ReporteOC",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReporteFacturas": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReporteFacturas",
+					"viewName": "ReporteFacturas",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReporteCC": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReporteCC",
+					"viewName": "ReporteCC",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ReporteMP": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ReporteMP",
+					"viewName": "ReporteMP",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"IngresarFactura": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "IngresarFactura",
+					"viewName": "IngresarFactura",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"MonitorFacturas": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "MonitorFacturas",
+					"viewName": "MonitorFacturas",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"MonitorCC": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "MonitorCC",
+					"viewName": "MonitorCC",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"UsuarioCrear": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "UsuarioCrear",
+					"viewName": "UsuarioCrear",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"UsuarioListar": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "UsuarioListar",
+					"viewName": "UsuarioListar",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"UsuarioCambioCont": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "UsuarioCambioCont",
+					"viewName": "UsuarioCambioCont",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
 				}
 			}
 		}

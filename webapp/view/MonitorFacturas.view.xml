@@ -61,7 +61,7 @@
 							</items>
 						</Select>
 						<Label text="Factura" />
-						<Input id="inpFactura" value="{SupplierName}" placeholder="Ej: 0001Z00000001" />
+						<Input id="inpFactura" placeholder="Ej: 0001Z00000001" />
 						<Label text="Desde / Hasta" />
 						<DatePicker
 							id="inpDesde"
@@ -76,7 +76,7 @@
 							placeholder="dd/mm/aaaa"
 							change="handleChange"/>
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
+						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" placeholder="Ej: 30123456780" />
 						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<!--<Label text="CUIT" labelFor="inpCuit"/>-->
 						<!--<HBox alignItems="Center" height="50px" renderType="Bare">-->

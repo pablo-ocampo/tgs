@@ -49,23 +49,8 @@
 				</tnt:NavigationList>
 			</tnt:SideNavigation>
 		</tnt:sideContent>
-	<tnt:mainContents>
-		<NavContainer id="pageContainer" initialPage="Inicio">
-			<pages>
-					<mvc:XMLView id="Inicio" viewName="neo.tgs.view.Inicio"/>
-					<mvc:XMLView id="MonitorFacturas" viewName="neo.tgs.view.MonitorFacturas"/>
-					<mvc:XMLView id="MonitorCC" viewName="neo.tgs.view.MonitorCC"/>
-					<mvc:XMLView id="IngresarFactura" viewName="neo.tgs.view.IngresarFactura"/>
-					<mvc:XMLView id="ReporteCC" viewName="neo.tgs.view.ReporteCC"/>
-					<mvc:XMLView id="ReporteFacturas" viewName="neo.tgs.view.ReporteFacturas"/>
-					<mvc:XMLView id="ReporteOC" viewName="neo.tgs.view.ReporteOC"/>
-					<mvc:XMLView id="ReporteMP" viewName="neo.tgs.view.ReporteMP"/>
-					<mvc:XMLView id="UsuarioCrear" viewName="neo.tgs.view.UsuarioCrear"/>
-					<mvc:XMLView id="UsuarioListar" viewName="neo.tgs.view.UsuarioListar"/>
-					<mvc:XMLView id="UsuarioCambioCont" viewName="neo.tgs.view.UsuarioCambioCont"/>
-					<mvc:XMLView id="ReclamoCrear" viewName="neo.tgs.view.ReclamoCrear"/>
-					<mvc:XMLView id="ReclamoListar" viewName="neo.tgs.view.ReclamoListar"/>
-			</pages>
+	<tnt:mainContents id="mainContents">
+		<NavContainer id="NavContainer" >
 		</NavContainer>
 	</tnt:mainContents>
 </tnt:ToolPage>

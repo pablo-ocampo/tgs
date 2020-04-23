@@ -2,25 +2,29 @@
 	controllerName="neo.tgs.controller.IngresarFactura"
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.m.semantic"
 	xmlns:core="sap.ui.core"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Ingresar factura" class="sapUiResponsiveContentPadding">
-		<headerContent>
-			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
-		<subHeader>
+	<semantic:FullscreenPage
+		title="Ingresar factura"
+		class="sapUiResponsiveContentPadding">
+	<!--<Page title="Ingresar factura" class="sapUiResponsiveContentPadding">-->
+		<!--<headerContent>-->
+		<!--	<Button icon="sap-icon://action" tooltip="Share" />-->
+		<!--</headerContent>-->
+		<semantic:subHeader>
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Ingresar factura" separatorStyle="GreaterThan">
 					<Link press="onPress" text="Inicio"/>
 				</Breadcrumbs>
 			</OverflowToolbar>
-		</subHeader>
-		<content>
+		</semantic:subHeader>
+		<!--<content>-->
+		<semantic:content>
 			<VBox>
 				<form:SimpleForm id="SimpleFormToolbar"
 				editable="true"
-				class="sapUiResponsiveContentPadding"
 				layout="ResponsiveGridLayout"
 				labelSpanXL="2"
 				labelSpanL="3"
@@ -38,26 +42,29 @@
 				ariaLabelledBy="Title1" >
 				<form:toolbar>
 					<Toolbar id="TB1">
-						<Title id="Title1" text="Parámetros de selección"/>
+						<Title id="Title1" text="Ingrese datos de la factura"/>
 					</Toolbar>
 				</form:toolbar>
 					<form:content >
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />
+						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{CuitProv}" placeholder="Ej: 30123456780" />
 						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<Label text="Fecha de factura" />
 						<DatePicker
-							id="inpDesde"
+							id="inpFecha"
+							displayFormat="dd/MM/yyyy"
+							valueFormat="yyyy-MM-dd"
 							placeholder="dd/mm/aaaa"
-							change="handleChange"/>
+							value="{FechaFac}"
+							change="handleChangeDatePicker"/>
 						<Label text="Orden de compra" />
-						<Input id="inpOrdenCompra" placeholder="Ej: 0123456789" />
+						<Input id="inpOrdenCompra" value="{OrdenCom}" placeholder="Ej: 0123456789" />
 						<Label text="Factura" />
-						<Input id="inpFactura" placeholder="Ej: 0001Z00000001" />
+						<Input id="inpFactura" value="{NumFac}" placeholder="Ej: 0001Z00000001" />
 						<Label text="Importe - Moneda" />
-						<Input id="inpImporte">
+						<Input value="{Importe}" id="inpImporte">
 						</Input>
-						<Input id="inpMoneda" placeholder="ARS" >
+						<Input id="inpMoneda" value="{Moneda}" placeholder="ARS" >
 							<layoutData>
 								<l:GridData span="XL1 L1 M1 S2" />
 							</layoutData>
@@ -71,12 +78,13 @@
 							</Select>
 					</form:content>
 				</form:SimpleForm>
-				<VBox alignItems="Center" class="sapUiLargeMarginBottom">
-					<items>
-						<Button type="Emphasized" icon="sap-icon://create-form" text="Ingresar" press="onPressIngresarFactura" />
-					</items>
-				</VBox>
 			</VBox>
-		</content>
-	</Page>
+		</semantic:content>
+		<semantic:customFooterContent>
+            <Button id="ingresarBtn" text="Ingresar" type="Accept" press="onSave"/>
+            <Button id="cancelarBtn" text="Cancelar" type="Reject" press="onCancel"/>
+		 </semantic:customFooterContent>
+		<!--</content>-->
+	</semantic:FullscreenPage>
+	<!--</Page>-->
 </mvc:View>

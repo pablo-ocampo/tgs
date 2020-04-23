@@ -11,6 +11,7 @@ sap.ui.define([
 		
 		onItemSelect: function (oEvent) {
 			var oItem = oEvent.getParameter("item");
+			var sKey = oItem.getKey();
 			if (oItem.getHasExpander()) {
 				if (oItem.getExpanded()) {
 					oItem.collapse();
@@ -19,7 +20,8 @@ sap.ui.define([
 					oItem.expand();
 				}
 			}
-			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
+			// this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
+			this.getRouter().navTo(sKey);
 		},
 		
 		onSideNavButtonPress: function () {

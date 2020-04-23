@@ -17,10 +17,14 @@ sap.ui.define([], function () {
 		},
 		
 		dateSap : function (sValue) {
+			debugger;
 			if (!sValue) {
 				return "";
 			}
 			return sValue.toLocaleDateString();
+		},
+		
+		dateBackEnd : function (sValue) {
 		}
 
 	};

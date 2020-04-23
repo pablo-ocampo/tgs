@@ -59,24 +59,7 @@ sap.ui.define([
 		
 		onPress: function (oEvent) {
 			var oText = oEvent.getSource().getProperty("text");
-			var oSplitAppView = oEvent.getSource();
-			
-			while (oSplitAppView.getParent()) {
-				try  {
-					oSplitAppView.getViewName();
-				}
-				catch (error) {
-					oSplitAppView = oSplitAppView.getParent();
-					continue;
-				}
-				
-				if (oSplitAppView.getViewName() !== "neo.tgs.view.SplitApp") {
-					oSplitAppView = oSplitAppView.getParent();
-				} else {
-					oSplitAppView.byId("pageContainer").to(oSplitAppView.createId(oText));
-					break;
-				}
-			}	
+			this.getRouter().navTo(oText);
 		}
 	});
 
