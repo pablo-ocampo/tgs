@@ -5,7 +5,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page class="sapUiResponsiveContentPadding">
+	<Page class="sapUiResponsiveContentPadding" id="PageMonFac">
 		<customHeader>
 			<Bar>
 				<contentLeft>
@@ -113,7 +113,7 @@
 					</items>
 				</VBox>
 			</VBox>
-			<HBox justifyContent="Center" id="Cards" >
+			<HBox justifyContent="Center" visible="false" id="Cards" >
 				<GenericTile class="tileLayout cardCargada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar cargadas" header="Cargadas" press="onPressCard">
 					<TileContent footer="Filtrar">
 						<NumericContent value="234" icon="sap-icon://pushpin-on" />
@@ -135,7 +135,7 @@
 					</TileContent>
 				</GenericTile>
 			</HBox>
-			<Table alternateRowColors="true" id="mainTable" class="sapUiLargeMarginTopBottom">
+			<Table alternateRowColors="true" visible="false" id="mainTable" class="sapUiLargeMarginTopBottom">
 				<headerToolbar>
 					<OverflowToolbar>
 						<Title

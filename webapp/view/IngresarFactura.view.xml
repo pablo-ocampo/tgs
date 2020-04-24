@@ -53,24 +53,25 @@
 						<DatePicker
 							id="inpFecha"
 							displayFormat="dd/MM/yyyy"
+							required="true" 
 							valueFormat="yyyy-MM-dd"
 							placeholder="dd/mm/aaaa"
 							value="{FechaFac}"
 							change="handleChangeDatePicker"/>
 						<Label text="Orden de compra" />
-						<Input id="inpOrdenCompra" value="{OrdenCom}" placeholder="Ej: 0123456789" />
+						<Input id="inpOrdenCompra" required="true" value="{OrdenCom}" placeholder="Ej: 0123456789" />
 						<Label text="Factura" />
-						<Input id="inpFactura" value="{NumFac}" placeholder="Ej: 0001Z00000001" />
+						<Input id="inpFactura" required="true" value="{NumFac}" placeholder="Ej: 0001Z00000001" />
 						<Label text="Importe - Moneda" />
-						<Input value="{Importe}" id="inpImporte">
+						<Input value="{Importe}" required="true" id="inpImporte">
 						</Input>
-						<Input id="inpMoneda" value="{Moneda}" placeholder="ARS" >
+						<Input id="inpMoneda" required="true" value="{Moneda}" placeholder="ARS" >
 							<layoutData>
 								<l:GridData span="XL1 L1 M1 S2" />
 							</layoutData>
 						</Input>
 						<Label text="Clase de documento" />
-							<Select id="inpClaseDoc" selectedKey="NO">
+							<Select id="inpClaseDoc" required="true" selectedKey="NO">
 								<items>
 									<core:Item text="Factura" key="NO"/>
 									<core:Item text="Orden de compra" key="NQ-O"/>

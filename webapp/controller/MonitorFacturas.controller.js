@@ -24,10 +24,23 @@ sap.ui.define([
 			);
 		},
 		
+		setVisibleOnSearch: function(boolean) {
+			var oTable = this.byId("mainTable");
+			var oCards = this.byId("Cards");
+			var oPage = this.byId("PageMonFac");
+			debugger;
+			oTable.setVisible(boolean);
+			oCards.setVisible(boolean);
+		},
+		
 		onPressBuscarFactura: function() {
 			// this.createId("Cards");
 			// var oCards = $( "#Cards" );
 			// oCards.scrollIntoView();
+			this.setVisibleOnSearch(true);
+			var oCards = this.byId("Cards");
+			var oPage = this.byId("PageMonFac");
+			jQuery.sap.intervalCall(500, oPage , "scrollToElement", [oCards,700]);
 			var sValueSoc = this.byId("inpSociedad").getSelectedKey();
 			var sValueFactura = this.byId("inpFactura").getValue();
 			var sValueFecha1 = this.byId("inpDesde").getDateValue();
@@ -56,7 +69,7 @@ sap.ui.define([
 				sap.ui.model.FilterOperator.EQ, sValueEstado
 			);
 			this._onListMatched(oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado);
-			// debugger;
+			debugger;
 			
 		},
 		
@@ -101,33 +114,7 @@ sap.ui.define([
 								templateShareable: true,
 								filters: [oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado]
 			});
-		},
-		
-		_bindView : function (sListPath) {
-			// debugger;
-			var oViewModel = this.getModel("listView"),
-				oDataModel = this.getModel();
-			this.getView().bindElement({
-				path: sListPath,
-				// parameters: {
-				// 		expand: "zClientesSet"
-				// 	},
-				events: {
-					change: this._onBindingChange.bind(this),
-					dataRequested: function () {
-						oDataModel.metadataLoaded().then(function () {
-							// Busy indicator on view should only be set if metadata is loaded,
-							// otherwise there may be two busy indications next to each other on the
-							// screen. This happens because route matched handler already calls '_bindView'
-							// while metadata is loaded.
-							oViewModel.setProperty("/busy", true);
-						});
-					},
-					dataReceived: function () {
-						oViewModel.setProperty("/busy", false);
-					}
-				}
-			});
 		}
+		
 	});
 });
