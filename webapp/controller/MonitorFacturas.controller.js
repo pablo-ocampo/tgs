@@ -28,7 +28,6 @@ sap.ui.define([
 			var oTable = this.byId("mainTable");
 			var oCards = this.byId("Cards");
 			var oPage = this.byId("PageMonFac");
-			debugger;
 			oTable.setVisible(boolean);
 			oCards.setVisible(boolean);
 		},
@@ -37,6 +36,31 @@ sap.ui.define([
 			// this.createId("Cards");
 			// var oCards = $( "#Cards" );
 			// oCards.scrollIntoView();
+			var errorFechaDesde, errorFechaHasta, errorFactura,errorCuit;
+			if(this.byId("inpDesde").getValue()){
+				errorFechaDesde = this._validateDate(this.byId("inpDesde"));
+			}else{
+				errorFechaDesde = false;
+			}
+			
+			if(this.byId("inpHasta").getValue()){
+				errorFechaHasta = this._validateDate(this.byId("inpHasta"));
+			}else{
+				errorFechaHasta = false;
+			}
+			
+			if(this.byId("inpFactura").getValue()){
+				errorFactura = this._validateInput(this.byId("inpFactura"));
+			}else{
+				errorFactura = false;
+			}
+			
+			errorCuit = this._validateInput(this.byId("inpCuit"));
+			
+			if(errorCuit || errorFechaDesde || errorFechaHasta || errorFactura) {
+				return;
+			}
+			
 			this.setVisibleOnSearch(true);
 			var oCards = this.byId("Cards");
 			var oPage = this.byId("PageMonFac");

@@ -60,6 +60,85 @@ sap.ui.define([
 		onPress: function (oEvent) {
 			var oText = oEvent.getSource().getProperty("text");
 			this.getRouter().navTo(oText);
+		},
+		
+		onChange: function(oEvent) {
+			this._validateInput(oEvent.getSource());
+		},
+		
+		onChangeDate: function(oEvent) {
+			this._validateDate(oEvent.getSource());
+		},
+		
+		onChangeSelect: function(oEvent) {
+			this._validateSelect(oEvent.getSource());
+		},
+		
+		_validateInput: function(oInput) {
+			
+			var oBinding = oInput.getBinding("value");
+			var sValueState = "None";
+			var bValidationError = false;
+			var b = isNaN(oInput.getValue());
+			
+			
+			try {
+				oBinding.getType().validateValue(oInput.getValue());
+			} catch (oException) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (oInput.getValue().includes('_')) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (oInput.getValue() === "0" || oInput.getValue() === "0,00" || !oInput.getValue()) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+
+			oInput.setValueState(sValueState);
+			return bValidationError;
+		},
+		
+		_validateDate: function(oInput) {
+			debugger;
+			var oBinding = oInput.getBinding("value");
+			var sValueState = "None";
+			var bValidationError = false;
+			
+			
+			try {
+				oBinding.getType().validateValue(oInput.getValue());
+			} catch (oException) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (!isNaN(oInput.getValue()) || !oInput.getValue()) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+
+			oInput.setValueState(sValueState);
+			return bValidationError;
+		},
+		
+		_validateSelect: function(oSelect) {
+			var sValueState = "None";
+			var bValidationError = false;
+			var a = oSelect.getSelectedKey();
+			
+			if (!oSelect.getSelectedKey()) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			oSelect.setValueState(sValueState);
+
+			return bValidationError;
 		}
 	});
 
