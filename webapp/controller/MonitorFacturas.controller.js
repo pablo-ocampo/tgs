@@ -61,6 +61,8 @@ sap.ui.define([
 				return;
 			}
 			
+			this.byId("VBoxBuscar").addStyleClass("sapUiLargeMarginBottom");
+			
 			this.setVisibleOnSearch(true);
 			var oCards = this.byId("Cards");
 			var oPage = this.byId("PageMonFac");

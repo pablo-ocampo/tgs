@@ -120,7 +120,7 @@
 						</Select>
 					</form:content>
 				</form:SimpleForm>
-				<VBox alignItems="Center" class="sapUiLargeMarginBottom">
+				<VBox id="VBoxBuscar" alignItems="Center">
 					<items>
 						<Button type="Emphasized" icon="sap-icon://search" text="Buscar" press="onPressBuscarFactura" />
 					</items>
