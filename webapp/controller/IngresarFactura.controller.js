@@ -26,7 +26,8 @@ sap.ui.define([
 			var errorOrdenCompra = this._validateInput(this.byId("inpOrdenCompra"));
 			var errorMoneda = this._validateInput(this.byId("inpMoneda"));
 			var errorImporte = this._validateInput(this.byId("inpImporte"));
-			if(!errorCuit && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte) {
+			var errorClaseDoc = this._validateSelect(this.byId("inpClaseDoc"));
+			if(!errorCuit && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte && !errorClaseDoc) {
 				this.getView().getModel().submitChanges();
 			}
 		},
@@ -38,6 +39,10 @@ sap.ui.define([
 		
 		onChange: function(oEvent) {
 			this._validateInput(oEvent.getSource());
+		},
+		
+		onChangeSelect: function(oEvent) {
+			this._validateSelect(oEvent.getSource());
 		},
 		
 		onParseError: function(oEvent) {
@@ -116,12 +121,28 @@ sap.ui.define([
 				bValidationError = true;
 			}
 			
-			if (oInput.getValue() === "0" || oInput.getValue() === "0,00") {
+			if (oInput.getValue() === "0" || oInput.getValue() === "0,00" || !oInput.getValue()) {
 				sValueState = "Error";
 				bValidationError = true;
 			}
 
 			oInput.setValueState(sValueState);
+
+			return bValidationError;
+		},
+		
+		_validateSelect: function(oSelect) {
+			debugger;
+			var sValueState = "None";
+			var bValidationError = false;
+			var a = oSelect.getSelectedKey();
+			
+			if (!oSelect.getSelectedKey()) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			oSelect.setValueState(sValueState);
 
 			return bValidationError;
 		}

@@ -70,16 +70,16 @@
 						<Label text="Importe - Moneda" />
 						<Input value="{parts:[ {path: 'Importe'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" change="onChange" required="true" id="inpImporte">
 						</Input>
-						<Input id="inpMoneda" change="onChange" required="true" type="Text" value="{path: 'Moneda', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 3}}" placeholder="ARS" >
+						<Input id="inpMoneda" change="onChange" required="true" type="Text" value="{path: 'Moneda', type: 'sap.ui.model.type.String', constraints: {minLength: 3, maxLength: 3}}" placeholder="ARS" >
 							<layoutData>
 								<l:GridData span="XL1 L1 M1 S2" />
 							</layoutData>
 						</Input>
 						<Label text="Clase de documento" />
-							<Select id="inpClaseDoc" required="true" selectedKey="NO">
+							<Select id="inpClaseDoc" forceSelection="false" required="true" change="onChangeSelect" selectedKey="{ClaseDoc}">
 								<items>
-									<core:Item text="Factura" key="NO"/>
-									<core:Item text="Orden de compra" key="NQ-O"/>
+									<core:Item text="Factura" key="NPO_75"/>
+									<core:Item text="Orden de compra" key="PO_75"/>
 								</items>
 							</Select>
 					</form:content>
