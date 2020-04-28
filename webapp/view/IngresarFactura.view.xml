@@ -47,25 +47,30 @@
 				</form:toolbar>
 					<form:content >
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{CuitProv}" placeholder="Ej: 30123456780" />
+						<MaskInput width="75%" required="true" change="onChange" class="sapUiMediumMarginEnd" id="inpCuit" value="{path: 'CuitProv', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
+						<!--<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{CuitProv}" placeholder="Ej: 30123456780" />-->
 						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<Label text="Fecha de factura" />
 						<DatePicker
 							id="inpFecha"
 							displayFormat="dd/MM/yyyy"
 							required="true" 
-							valueFormat="yyyy-MM-dd"
+							valueFormat="dd/MM/yyyy"
 							placeholder="dd/mm/aaaa"
-							value="{FechaFac}"
-							change="handleChangeDatePicker"/>
+							value="{path: 'FechaFac', type: 'sap.ui.model.type.Date', formatOptions: {
+																							source: {
+																								pattern: 'yyyy-MM-dd'
+																							},
+																							pattern: 'dd/MM/yyyy'}}"
+							change="onChange"/>
 						<Label text="Orden de compra" />
-						<Input id="inpOrdenCompra" required="true" value="{OrdenCom}" placeholder="Ej: 0123456789" />
+						<Input id="inpOrdenCompra" required="true" change="onChange" type="Number" value="{path: 'OrdenCom', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 10}}" placeholder="Ej: 0123456789" />
 						<Label text="Factura" />
-						<Input id="inpFactura" required="true" value="{NumFac}" placeholder="Ej: 0001Z00000001" />
+						<Input id="inpFactura" required="true" change="onChange" value="{path: 'NumFac', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 14}}" placeholder="Ej: 0001Z00000001" />
 						<Label text="Importe - Moneda" />
-						<Input value="{Importe}" required="true" id="inpImporte">
+						<Input value="{parts:[ {path: 'Importe'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" change="onChange" required="true" id="inpImporte">
 						</Input>
-						<Input id="inpMoneda" required="true" value="{Moneda}" placeholder="ARS" >
+						<Input id="inpMoneda" change="onChange" required="true" type="Text" value="{path: 'Moneda', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 3}}" placeholder="ARS" >
 							<layoutData>
 								<l:GridData span="XL1 L1 M1 S2" />
 							</layoutData>

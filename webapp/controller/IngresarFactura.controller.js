@@ -15,6 +15,38 @@ sap.ui.define([
 			this.getRouter().getRoute("IngresarFactura").attachPatternMatched(this._onRouteMatched, this);
 		},
 		
+		onCancel: function() {
+			this.onNavBack();
+		},
+		
+		onSave: function() {
+			var errorCuit = this._validateInput(this.byId("inpCuit"));
+			var errorFecha = this._validateInput(this.byId("inpFecha"));
+			var errorFactura = this._validateInput(this.byId("inpFactura"));
+			var errorOrdenCompra = this._validateInput(this.byId("inpOrdenCompra"));
+			var errorMoneda = this._validateInput(this.byId("inpMoneda"));
+			var errorImporte = this._validateInput(this.byId("inpImporte"));
+			if(!errorCuit && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte) {
+				this.getView().getModel().submitChanges();
+			}
+		},
+		
+		setSave : function(boolean) {
+			
+			this.byId("ingresarBtn").setEnabled(boolean);	
+		},
+		
+		onChange: function(oEvent) {
+			this._validateInput(oEvent.getSource());
+		},
+		
+		onParseError: function(oEvent) {
+			
+				var	sValueState = "Error";
+				// this.setSave(false);
+				oEvent.getSource().setValueState(sValueState);
+		},
+		
 		_onRouteMatched: function() {
 
 		// register for metadata loaded events
@@ -44,8 +76,9 @@ sap.ui.define([
 			this.getView().setBindingContext(this._oContext);
 		},
 		
-		onCancel: function() {
-			this.onNavBack();
+		_onError: function(oError) {
+			MessageBox.error("Error al Actualizar");
+			this.getView().getModel().resetChanges();
 		},
 		
 		_onCreateSuccess: function (oFactura) {
@@ -61,18 +94,36 @@ sap.ui.define([
 				id: "messageBoxId1",
 				contentWidth: "100px"
 			});
+			this._onRouteMatched();
 		},
 		
-		onSave: function() {
-			this.getModel().submitChanges();
-		},
-		
-		handleChangeDatePicker: function(oControlEvent) {
-			// var value = oControlEvent.getParameters().value;
-			// value = value + "T00:00"
-			// this.byId("inpFecha").setValue(value);
-			// debugger;
+		_validateInput: function(oInput) {
 			
+			var oBinding = oInput.getBinding("value");
+			var sValueState = "None";
+			var bValidationError = false;
+			
+			
+			try {
+				oBinding.getType().validateValue(oInput.getValue());
+			} catch (oException) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (oInput.getValue().includes('_')) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (oInput.getValue() === "0" || oInput.getValue() === "0,00") {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+
+			oInput.setValueState(sValueState);
+
+			return bValidationError;
 		}
 	});
 });

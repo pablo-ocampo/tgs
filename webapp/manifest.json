@@ -40,6 +40,7 @@
 		}
 	},
 	"sap.ui5": {
+		"handleValidation": true,
 		"flexEnabled": false,
 		"rootView": {
 			"viewName": "neo.tgs.view.App",

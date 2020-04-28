@@ -40,7 +40,7 @@ sap.ui.define([
 			this.setVisibleOnSearch(true);
 			var oCards = this.byId("Cards");
 			var oPage = this.byId("PageMonFac");
-			jQuery.sap.intervalCall(500, oPage , "scrollToElement", [oCards,700]);
+			jQuery.sap.delayedCall(500, oPage, "scrollToElement", [oCards,700]);
 			var sValueSoc = this.byId("inpSociedad").getSelectedKey();
 			var sValueFactura = this.byId("inpFactura").getValue();
 			var sValueFecha1 = this.byId("inpDesde").getDateValue();
@@ -69,7 +69,6 @@ sap.ui.define([
 				sap.ui.model.FilterOperator.EQ, sValueEstado
 			);
 			this._onListMatched(oFilterSociedad,oFilterFactura,oFilterFecha,oFilterCuit,oFilterEstado);
-			debugger;
 			
 		},
 		
