@@ -15,6 +15,7 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
 				</Button>
+				<Image src="./images/Entelgy_logo_blanco.png" id="headerImg" class="sapUiTinyMarginTop" width="7rem"/>
 				<ToolbarSpacer width="20px" />
 				<tnt:ToolHeaderUtilitySeparator />
 				<ToolbarSpacer>

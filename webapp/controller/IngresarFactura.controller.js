@@ -21,7 +21,7 @@ sap.ui.define([
 		
 		onSave: function() {
 			var errorCuit = this._validateInput(this.byId("inpCuit"));
-			var errorFecha = this._validateInput(this.byId("inpFecha"));
+			var errorFecha = this._validateDate(this.byId("inpFecha"));
 			var errorFactura = this._validateInput(this.byId("inpFactura"));
 			var errorOrdenCompra = this._validateInput(this.byId("inpOrdenCompra"));
 			var errorMoneda = this._validateInput(this.byId("inpMoneda"));
@@ -39,6 +39,10 @@ sap.ui.define([
 		
 		onChange: function(oEvent) {
 			this._validateInput(oEvent.getSource());
+		},
+		
+		onChangeDate: function(oEvent) {
+			this._validateDate(oEvent.getSource());
 		},
 		
 		onChangeSelect: function(oEvent) {
@@ -107,6 +111,7 @@ sap.ui.define([
 			var oBinding = oInput.getBinding("value");
 			var sValueState = "None";
 			var bValidationError = false;
+			var b = isNaN(oInput.getValue());
 			
 			
 			try {
@@ -127,7 +132,30 @@ sap.ui.define([
 			}
 
 			oInput.setValueState(sValueState);
+			debugger;
+			return bValidationError;
+		},
+		
+		_validateDate: function(oInput) {
+			
+			var oBinding = oInput.getBinding("value");
+			var sValueState = "None";
+			var bValidationError = false;
+			
+			
+			try {
+				oBinding.getType().validateValue(oInput.getValue());
+			} catch (oException) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
+			
+			if (!isNaN(oInput.getValue()) || !oInput.getValue()) {
+				sValueState = "Error";
+				bValidationError = true;
+			}
 
+			oInput.setValueState(sValueState);
 			return bValidationError;
 		},
 		

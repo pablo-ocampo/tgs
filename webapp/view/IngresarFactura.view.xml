@@ -62,7 +62,7 @@
 																								pattern: 'yyyy-MM-dd'
 																							},
 																							pattern: 'dd/MM/yyyy'}}"
-							change="onChange"/>
+							change="onChangeDate"/>
 						<Label text="Orden de compra" />
 						<Input id="inpOrdenCompra" required="true" change="onChange" type="Number" value="{path: 'OrdenCom', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 10}}" placeholder="Ej: 0123456789" />
 						<Label text="Factura" />
