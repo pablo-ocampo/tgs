@@ -21,7 +21,10 @@ sap.ui.define([
 				}
 			}
 			// this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
-			this.getRouter().navTo(sKey);
+			
+			if(this.byId("NavContainer").getCurrentPage().getController().onExit(sKey, this)) {
+				this.getRouter().navTo(sKey);
+			}
 		},
 		
 		onSideNavButtonPress: function () {
