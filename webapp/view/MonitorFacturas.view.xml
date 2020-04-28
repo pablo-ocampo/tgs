@@ -61,22 +61,35 @@
 							</items>
 						</Select>
 						<Label text="Factura" />
-						<Input id="inpFactura" placeholder="Ej: 0001Z00000001" />
+						<Input id="inpFactura" required="false" change="onChange" value="{path: 'Login>/factura', type: 'sap.ui.model.type.String', constraints: { maxLength: 14}}" placeholder="Ej: 0001Z00000001" />
 						<Label text="Desde / Hasta" />
 						<DatePicker
 							id="inpDesde"
 							displayFormat="dd/MM/yyyy"
+							required="false" 
 							valueFormat="dd/MM/yyyy"
 							placeholder="dd/mm/aaaa"
-							change="handleChange"/>
+							value="{path: 'Login>/fechaDesde', type: 'sap.ui.model.type.Date', formatOptions: {
+																							source: {
+																								pattern: 'yyyy-MM-dd'
+																							},
+																							pattern: 'dd/MM/yyyy'}}"
+							change="onChangeDate"/>
 						<DatePicker
 							id="inpHasta"
 							displayFormat="dd/MM/yyyy"
+							required="false" 
 							valueFormat="dd/MM/yyyy"
 							placeholder="dd/mm/aaaa"
-							change="handleChange"/>
+							value="{path: 'Login>/fechaHasta', type: 'sap.ui.model.type.Date', formatOptions: {
+																							source: {
+																								pattern: 'yyyy-MM-dd'
+																							},
+																							pattern: 'dd/MM/yyyy'}}"
+							change="onChangeDate"/>
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" placeholder="Ej: 30123456780" />
+						<MaskInput width="75%" required="true" change="onChange" class="sapUiMediumMarginEnd" id="inpCuit" value="{path: 'Login>/cuit', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
+						<!--<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" placeholder="Ej: 30123456780" />-->
 						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<!--<Label text="CUIT" labelFor="inpCuit"/>-->
 						<!--<HBox alignItems="Center" height="50px" renderType="Bare">-->

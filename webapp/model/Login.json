@@ -1,5 +1,9 @@
 {
 	"usuario": "",
 	"contrasenia": "",
-	"email": ""
+	"email": "",
+	"cuit":"",
+	"fechaDesde": "",
+	"fechaHasta": "",
+	"factura": ""
 }

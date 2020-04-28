@@ -123,18 +123,6 @@ sap.ui.define([
 			this.byId("ingresarBtn").setEnabled(boolean);	
 		},
 		
-		onChange: function(oEvent) {
-			this._validateInput(oEvent.getSource());
-		},
-		
-		onChangeDate: function(oEvent) {
-			this._validateDate(oEvent.getSource());
-		},
-		
-		onChangeSelect: function(oEvent) {
-			this._validateSelect(oEvent.getSource());
-		},
-		
 		onParseError: function(oEvent) {
 			
 				var	sValueState = "Error";
@@ -262,5 +250,6 @@ sap.ui.define([
 
 			return bValidationError;
 		}
+		
 	});
 });
