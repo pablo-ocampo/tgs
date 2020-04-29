@@ -108,6 +108,8 @@ sap.ui.define([
 		},
 		
 		onPressBuscarFactura: function() {
+			
+			this.byId("filterMessageStrip").setVisible(false);
 			this.getModel("monFacView").setProperty("/busyTileProcesada", true);
 			this.getModel("monFacView").setProperty("/busyTilePagada", true);
 			this.getModel("monFacView").setProperty("/busyTileRechazada", true);
