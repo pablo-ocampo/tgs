@@ -203,7 +203,7 @@
 				},
 				"SplitApp": {
 					"viewType": "XML",
-					"transition": "slide",
+					"transition": "flip",
 					"clearControlAggregation": false,
 					"viewId": "SplitApp",
 					"viewName": "SplitApp",

@@ -6,6 +6,15 @@
 	xmlns:card="sap.f.cards">
 	
 	<Page>
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Image src="./images/Entelgy_logo_negro.png" id="headerImg" class="marginLogoLogin" width="9.4rem"/>
+					<ToolbarSeparator/>
+					<Title text="PORTAL DE PROVEEDORES" level="H1" class="sapUiTinyMarginTop sapUiSmallMarginBegin"/>
+				</contentLeft>
+			</Bar>
+		</customHeader>
 		<content >
 			<FlexBox
 				alignItems="Center"
