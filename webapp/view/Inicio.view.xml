@@ -2,10 +2,14 @@
 	controllerName="neo.tgs.controller.Inicio"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc" id="Inicio">
-	<Page title="Inicio">
-		<headerContent>
-			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
+	<Page title="Inicio" class="sapUiResponsiveContentPadding" >
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Title text="Inicio" titleStyle="H2"/>
+				</contentLeft>
+			</Bar>
+		</customHeader>
 		<subHeader>
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Inicio" separatorStyle="{/selected}">
@@ -13,7 +17,19 @@
 			</OverflowToolbar>
 		</subHeader>
 		<content>
-			<Text text="Un simple texto de inicio... Bienvenido Matías Tardito"/>
+			<MessageStrip
+				text="¡Bienvenido al nuevo Portal de Proveedores de Entelgy! Pruebe el Monitor de Facturas o la función de Ingresar Factura."
+				type="Information"
+				showIcon="true"
+				class="sapUiMediumMarginBottom"/>
+			<FlexBox
+				height="60vh"
+				alignItems="Center"
+				justifyContent="Center">
+				<items>
+					<Image src="./images/Entelgy_negro.png" id="inicioImg" width="30rem"/>
+				</items>
+			</FlexBox>
 		</content>
 	</Page>
 </mvc:View>

@@ -63,7 +63,9 @@ sap.ui.define([
 		
 		onPress: function (oEvent) {
 			var oText = oEvent.getSource().getProperty("text");
-			this.getRouter().navTo(oText);
+			if(this.onExit(oText,this)) {
+				this.getRouter().navTo(oText);
+			}
 		},
 		
 		onChange: function(oEvent) {

@@ -127,33 +127,44 @@
 				</VBox>
 			</VBox>
 			<HBox justifyContent="Center" visible="false" id="Cards" >
-				<GenericTile class="tileLayout cardCargada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar cargadas" header="Cargadas" press="onPressCard">
+				<GenericTile class="tileLayout cardCargada sapUiSmallMargin" busy="{monFacView>/busyTileCargada}" sizeBehavior="Small" tooltip="Filtrar cargadas" header="Cargadas" press="onPressCard">
 					<TileContent footer="Filtrar">
-						<NumericContent value="234" icon="sap-icon://pushpin-on" />
+						<NumericContent value="{monFacView>/Cargada}" icon="sap-icon://pushpin-on" />
 					</TileContent>
 				</GenericTile>
-				<GenericTile class="tileLayout cardProcesada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar procesadas" header="Procesadas" press="onPressCard">
+				<GenericTile class="tileLayout cardProcesada sapUiSmallMargin" busy="{monFacView>/busyTileProcesada}" sizeBehavior="Small" tooltip="Filtrar procesadas" header="Procesadas" press="onPressCard">
 					<TileContent footer="Filtrar">
-						<NumericContent value="234" icon="sap-icon://timesheet" />
+						<NumericContent value="{monFacView>/Procesada}" icon="sap-icon://timesheet" />
 					</TileContent>
 				</GenericTile>
-				<GenericTile class="tileLayout cardPagada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar pagadas" header="Pagadas" press="onPressCard">
+				<GenericTile class="tileLayout cardPagada sapUiSmallMargin" busy="{monFacView>/busyTilePagada}" sizeBehavior="Small" tooltip="Filtrar pagadas" header="Pagadas" press="onPressCard">
 					<TileContent footer="Filtrar">
-						<NumericContent value="234" valueColor="Good" icon="sap-icon://paid-leave"/>
+						<NumericContent value="{monFacView>/Pagada}" valueColor="Good" icon="sap-icon://paid-leave"/>
 					</TileContent>
 				</GenericTile>
-				<GenericTile class="tileLayout cardRechazada sapUiSmallMargin" sizeBehavior="Small" tooltip="Filtrar rechazadas" header="Rechazadas" press="onPressCard">
+				<GenericTile class="tileLayout cardRechazada sapUiSmallMargin" busy="{monFacView>/busyTileRechazada}" sizeBehavior="Small" tooltip="Filtrar rechazadas" header="Rechazadas" press="onPressCard">
 					<TileContent footer="Filtrar">
-						<NumericContent value="234" valueColor="Error" icon="sap-icon://unpaid-leave" />
+						<NumericContent value="{monFacView>/Rechazada}" valueColor="Error" icon="sap-icon://unpaid-leave" />
 					</TileContent>
 				</GenericTile>
 			</HBox>
-			<Table alternateRowColors="true" visible="false" id="mainTable" class="sapUiLargeMarginTopBottom">
+			<MessageStrip
+				text="{monFacView>/filterMessage}"
+				type="Information"
+				showIcon="true"
+				id="filterMessageStrip"
+				visible="false"
+				class="sapUiMediumMarginBottom">
+				<link>
+					<Link text="Quitar filtro" press=".onPressQuitarFiltro"/>
+				</link>
+			</MessageStrip>
+			<Table alternateRowColors="true" visible="false" id="mainTable" class="sapUiLargeMarginTopBottom" updateFinished=".onUpdateFinished">
 				<headerToolbar>
 					<OverflowToolbar>
 						<Title
 							id="tableHeader"
-							text="{i18n>monitorFacturasTituloTabla}"
+							text="{monFacView>/tableTitle}"
 							level="H3"/>
 						<ToolbarSpacer />
 						<SearchField
