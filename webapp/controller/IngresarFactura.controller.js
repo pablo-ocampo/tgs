@@ -105,6 +105,30 @@ sap.ui.define([
 			
 		},
 		
+		onUpload: function (oEvent) {
+			var oFileUpload = this.getView().byId("fileUploader");
+			var domRef = oFileUpload.getFocusDomRef();
+			var file = domRef.files[0];
+			var that = this;
+			this.fileType = file.type;
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var vContent = e.currentTarget.result.replace("data:" + file.type + ";base64,", "");
+				that.bindArchivo(vContent);
+				};
+			reader.readAsDataURL(file);
+		},
+		
+		handleTypeMissmatch: function() {
+			MessageBox.error("Sólo se admite el tipo de archivo PDF. Seleccione el PDF correspondiente a la factura");
+		},
+		
+		bindArchivo: function(contenido) {
+			var oModel = this.getView().getModel();
+			var oBinding = this.byId("inpFactura").getBindingContext();
+			oModel.setProperty(oBinding + "/Archivo", contenido);
+		},
+		
 		onSave: function() {
 			var errorCuit			= this._validateInput(this.byId("inpCuit"));
 			var errorFecha			= this._validateDate(this.byId("inpFecha"));
@@ -114,6 +138,7 @@ sap.ui.define([
 			var errorImporte		= this._validateInput(this.byId("inpImporte"));
 			var errorClaseDoc		= this._validateSelect(this.byId("inpClaseDoc"));
 			if(!errorCuit && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte && !errorClaseDoc) {
+				this.getView().setBusy(true);
 				this.getView().getModel().submitChanges();
 			}
 		},
@@ -146,11 +171,12 @@ sap.ui.define([
 				Importe: "",
 				Moneda: "",
 				ClaseDoc: "",
-				Docid: ""
+				Docid: "",
+				Archivo: ""
 			};
 
 			// create new entry in the model
-			this._oContext = this.getModel().createEntry("/Datos_demoSet", {
+			this._oContext = this.getModel().createEntry("/DatosDemoSet", {
 				properties: oProperties,
 				success: this._onCreateSuccess.bind(this)
 			});	
@@ -172,11 +198,12 @@ sap.ui.define([
 		
 		_onCreateSuccess: function (oFactura) {
 		
+			this.getView().setBusy(false);
 			// show success messge
-			var sMessage = this.getResourceBundle().getText("newObjectCreated", [oFactura.NumFac]);
-			MessageToast.show(sMessage, {
-				closeOnBrowserNavigation : false
-			});
+			// var sMessage = this.getResourceBundle().getText("newObjectCreated", [oFactura.NumFac]);
+			// MessageToast.show(sMessage, {
+			// 	closeOnBrowserNavigation : false
+			// });
 			
 			MessageBox.success("La factura ha sido correctamente creada. ID de documento: " + oFactura.Docid + "." , {
 				title: "¡Éxito!",

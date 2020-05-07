@@ -72,8 +72,26 @@ sap.ui.define([
 			this._validateInput(oEvent.getSource());
 		},
 		
+		onChangeOptional: function(oEvent) {
+			if(oEvent.getSource().getValue()) {
+				this._validateInput(oEvent.getSource());
+			}
+			else {
+				oEvent.getSource().setValueState("None");
+			}
+		},
+		
 		onChangeDate: function(oEvent) {
 			this._validateDate(oEvent.getSource());
+		},
+		
+		onChangeDateOptional: function(oEvent) {
+			if(oEvent.getSource().getValue()) {
+				this._validateDate(oEvent.getSource());
+			}
+			else {
+				oEvent.getSource().setValueState("None");
+			}
 		},
 		
 		onChangeSelect: function(oEvent) {
@@ -85,7 +103,6 @@ sap.ui.define([
 			var oBinding = oInput.getBinding("value");
 			var sValueState = "None";
 			var bValidationError = false;
-			var b = isNaN(oInput.getValue());
 			
 			
 			try {
@@ -110,7 +127,6 @@ sap.ui.define([
 		},
 		
 		_validateDate: function(oInput) {
-			debugger;
 			var oBinding = oInput.getBinding("value");
 			var sValueState = "None";
 			var bValidationError = false;
@@ -135,7 +151,6 @@ sap.ui.define([
 		_validateSelect: function(oSelect) {
 			var sValueState = "None";
 			var bValidationError = false;
-			var a = oSelect.getSelectedKey();
 			
 			if (!oSelect.getSelectedKey()) {
 				sValueState = "Error";

@@ -5,6 +5,7 @@
 	xmlns:semantic="sap.m.semantic"
 	xmlns:core="sap.ui.core"
 	xmlns:form="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
 	xmlns:mvc="sap.ui.core.mvc">
 	<!--<semantic:FullscreenPage-->
 	<!--	title="Ingresar factura"-->
@@ -83,12 +84,29 @@
 							</layoutData>
 						</Input>
 						<Label text="Clase de documento" />
-							<Select id="inpClaseDoc" forceSelection="false" required="true" change="onChangeSelect" selectedKey="{ClaseDoc}">
-								<items>
-									<core:Item text="Factura" key="NPO_75"/>
-									<core:Item text="Orden de compra" key="PO_75"/>
-								</items>
-							</Select>
+						<Select id="inpClaseDoc" forceSelection="false" required="true" change="onChangeSelect" selectedKey="{ClaseDoc}">
+							<items>
+								<core:Item text="Factura" key="NPO_75"/>
+								<core:Item text="Orden de compra" key="PO_75"/>
+							</items>
+						</Select>
+						<Label text="Archivo (PDF)"/>
+						<u:FileUploader
+						id="fileUploader"
+						required="true"
+						name="uploader"
+						uploadUrl="upload/"
+						iconOnly="true"
+						icon="sap-icon://pdf-attachment"
+						tooltip="Seleccione el documento PDF correspondiente a esta factura"
+						uploadComplete="onUpload"
+						change="onUpload"
+						typeMissmatch="handleTypeMissmatch"
+						style="Emphasized"
+						fileType="pdf"
+						width="100%"
+						placeholder="Factura en PDF">
+						</u:FileUploader>
 					</form:content>
 				</form:SimpleForm>
 			</VBox>
