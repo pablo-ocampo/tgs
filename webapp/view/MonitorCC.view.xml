@@ -1,7 +1,9 @@
 <mvc:View
 	controllerName="neo.tgs.controller.MonitorCC"
 	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form">
 	<Page class="sapUiResponsiveContentPadding" id="PageMonCC">
 		<customHeader>
 			<Bar>
@@ -19,7 +21,144 @@
 			</OverflowToolbar>
 		</subHeader>
 		<content>
-			<Text text="Un simple texto que indica que estás en el monitor de cuentas corrientes"/>
+			<MessageStrip
+				text="Buscar por rango de fechas"
+				type="Information"
+				showIcon="true"
+				customIcon="sap-icon://appointment-2"
+				class="sapUiSmallMarginBottom">
+			</MessageStrip>
+			<VBox>
+				<form:SimpleForm id="SimpleFormToolbar"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanXL="4"
+				labelSpanL="4"
+				labelSpanM="4"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				emptySpanXL="4"
+				emptySpanL="4"
+				emptySpanM="4"
+				emptySpanS="0"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="false"
+				ariaLabelledBy="Title1" >
+				<form:toolbar>
+					<Toolbar id="TB1">
+						<Title id="Title1" text="Parámetros de selección"/>
+					</Toolbar>
+				</form:toolbar>
+					<form:content >
+						<Label text="Sociedad" />
+						<Select id="inpSociedad" required="true" selectedKey="GDS">
+							<items>
+								<core:Item text="Trans. de Gas del Sur" key="1000"/>
+								<core:Item text="Telcosur" key="2000"/>
+							</items>
+						</Select>
+						<Label text="Desde / Hasta" />
+						<DatePicker
+							id="inpDesde"
+							displayFormat="dd/MM/yyyy"
+							required="false"
+							change="onChangeDateOptional"
+							valueFormat="dd/MM/yyyy"
+							placeholder="dd/mm/aaaa"
+							value="{path: 'Login>/fechaDesdeCC', type: 'sap.ui.model.type.Date', formatOptions: {
+																							source: {
+																								pattern: 'yyyy-MM-dd'
+																							},
+																							pattern: 'dd/MM/yyyy'}}"/>
+						<DatePicker
+							id="inpHasta"
+							displayFormat="dd/MM/yyyy"
+							required="false" 
+							change="onChangeDateOptional"
+							valueFormat="dd/MM/yyyy"
+							placeholder="dd/mm/aaaa"
+							value="{path: 'Login>/fechaHastaCC', type: 'sap.ui.model.type.Date', formatOptions: {
+																							source: {
+																								pattern: 'yyyy-MM-dd'
+																							},
+																							pattern: 'dd/MM/yyyy'}}"/>
+						<Label text="CUIT" labelFor="inpCuit"/>
+						<MaskInput required="true" change="onChange" id="inpCuit" value="{path: 'Login>/cuitCC', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
+					</form:content>
+				</form:SimpleForm>
+				<VBox id="VBoxBuscar" alignItems="Center">
+					<items>
+						<Button type="Emphasized" icon="sap-icon://search" text="Buscar" press="onPressBuscarFactura" />
+					</items>
+				</VBox>
+				<Table alternateRowColors="true" visible="false" id="mainTableCC" class="sapUiLargeMarginTopBottom" updateFinished=".onUpdateFinished">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title
+							id="tableHeader"
+							text="{monCCView>/tableTitle}"
+							level="H3"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="Búsqueda"
+							search=".onSearch">
+							<layoutData>
+								<OverflowToolbarLayoutData
+									maxWidth="200px"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="socColumn" hAlign="Begin" width="5em">
+						<Text text="Sociedad"/>
+					</Column>
+					<Column id="tipoDocColumn"  hAlign="Begin" width="9em"
+								>
+						<Text text="Tipo de documento"/>
+					</Column>
+					<Column id="nroCompColumn"  hAlign="Center" width="9em"
+								>
+						<Text text="Nro. de Comprobante"/>
+					</Column>
+					<Column id="fechaCompColumn" hAlign="Center" width="7em">
+						<Text text="Fecha Comprobante"/>
+					</Column>
+					<Column id="importeColumn" hAlign="End" width="7em">
+						<Text text="Importe"/>
+					</Column>
+					<Column id="ordenPagoColumn" hAlign="Begin" width="7em" >
+						<Text text="Orden pago"/>
+					</Column>
+				</columns>
+				
+				<dependents>
+					<ColumnListItem id="item"
+						type="Inactive">
+						<cells>
+							<Text text="{= ${Bukrs} === '1000' ? 'TGSA' : 'OTRA' }"/>
+							<Text text="{TipoDoc}"/>
+							<ObjectIdentifier
+								title="{Xblnr}"/>
+							<Text text="{	path: 'Bldat',
+											formatter: '.formatter.dateSap'}"/>
+							<ObjectNumber
+										number="{
+											path: 'Wrbtr',
+											formatter: '.formatter.numberUnit'
+										}"
+										unit="{Waers}"/>
+							<ObjectIdentifier
+								title="{Augbl}"/>
+						</cells>
+					</ColumnListItem>
+				</dependents>
+			</Table>
+			</VBox>
 		</content>
 	</Page>
 </mvc:View>
