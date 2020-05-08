@@ -24,6 +24,7 @@ sap.ui.define([
 		onNavBack : function() {
 		
 			var sPreviousHash = History.getInstance().getPreviousHash();
+			console.log(sPreviousHash);
 			if (sPreviousHash !== undefined) {
 				history.go(-1);
 			} else {

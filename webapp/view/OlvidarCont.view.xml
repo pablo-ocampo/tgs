@@ -5,13 +5,13 @@
 	xmlns:f="sap.f"
 	xmlns:card="sap.f.cards">
 	
-	<Page>
+	<Page backgroundDesign="Transparent">
 		<customHeader>
 			<Bar>
 				<contentLeft>
 					<Image src="./images/Entelgy_logo_negro.png" id="headerImg" class="marginLogoLogin" width="9.4rem"/>
 					<ToolbarSeparator/>
-					<Title text="PORTAL DE PROVEEDORES" level="H1" class="sapUiTinyMarginTop sapUiSmallMarginBegin"/>
+					<Title text="PORTAL DE PROVEEDORES" level="H1" class="sapUiSmallMarginBegin"/>
 				</contentLeft>
 			</Bar>
 		</customHeader>

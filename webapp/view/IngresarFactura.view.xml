@@ -34,14 +34,14 @@
 				<form:SimpleForm id="SimpleFormToolbar"
 				editable="true"
 				layout="ResponsiveGridLayout"
-				labelSpanXL="2"
-				labelSpanL="3"
-				labelSpanM="3"
+				labelSpanXL="4"
+				labelSpanL="4"
+				labelSpanM="4"
 				labelSpanS="12"
 				adjustLabelSpan="false"
-				emptySpanXL="1"
-				emptySpanL="1"
-				emptySpanM="1"
+				emptySpanXL="4"
+				emptySpanL="4"
+				emptySpanM="4"
 				emptySpanS="0"
 				columnsXL="1"
 				columnsL="1"
@@ -50,14 +50,14 @@
 				ariaLabelledBy="Title1" >
 				<form:toolbar>
 					<Toolbar id="TB1">
-						<Title id="Title1" text="Ingrese datos de la factura"/>
+						<Title id="Title1" text="Datos de la factura"/>
 					</Toolbar>
 				</form:toolbar>
 					<form:content >
+						<core:Title text="Datos del documento" />
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<MaskInput width="75%" required="true" change="onChange" class="sapUiMediumMarginEnd" id="inpCuit" value="{path: 'CuitProv', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
+						<MaskInput required="true" change="onChange" id="inpCuit" value="{path: 'CuitProv', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
 						<!--<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" value="{CuitProv}" placeholder="Ej: 30123456780" />-->
-						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
 						<Label text="Fecha de factura" />
 						<DatePicker
 							id="inpFecha"

@@ -33,14 +33,14 @@
 				<form:SimpleForm id="SimpleFormToolbar"
 				editable="true"
 				layout="ResponsiveGridLayout"
-				labelSpanXL="2"
-				labelSpanL="3"
-				labelSpanM="3"
+				labelSpanXL="4"
+				labelSpanL="4"
+				labelSpanM="4"
 				labelSpanS="12"
 				adjustLabelSpan="false"
-				emptySpanXL="1"
-				emptySpanL="1"
-				emptySpanM="1"
+				emptySpanXL="4"
+				emptySpanL="4"
+				emptySpanM="4"
 				emptySpanS="0"
 				columnsXL="1"
 				columnsL="1"
@@ -88,25 +88,7 @@
 																							},
 																							pattern: 'dd/MM/yyyy'}}"/>
 						<Label text="CUIT" labelFor="inpCuit"/>
-						<MaskInput width="75%" required="true" change="onChange" class="sapUiMediumMarginEnd" id="inpCuit" value="{path: 'Login>/cuit', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
-						<!--<Input width="75%" required="true" class="sapUiMediumMarginEnd" id="inpCuit" placeholder="Ej: 30123456780" />-->
-						<Text textAlign="End" class="noPadding" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>
-						<!--<Label text="CUIT" labelFor="inpCuit"/>-->
-						<!--<HBox alignItems="Center" height="50px" renderType="Bare">-->
-						<!--		<Input width="75%" class="sapUiMediumMarginEnd" id="inpCuit" value="{SupplierName}" placeholder="Ej: 30123456780" />-->
-						<!--		<Text textAlign="End" maxLines="2" text="(Para proveedores del exterior o de varios puntos de venta ingrese el Código de Proveedor SAP)"/>-->
-						<!--</HBox>-->
-						<!--<Label text="Zona de carga" />-->
-						<!--<Select id="inpZona" selectedKey="NO">-->
-						<!--	<items>-->
-						<!--		<core:Item text="No asignar" key="NO"/>-->
-						<!--		<core:Item text="Neuquen - Oeste" key="NQ-O"/>-->
-						<!--		<core:Item text="Comodoro Rivadavia - Sur 1" key="CR-S1"/>-->
-						<!--		<core:Item text="Rio Gallegos - Sur 2" key="RG-S2"/>-->
-						<!--		<core:Item text="Capital Federal" key="CF"/>-->
-						<!--		<core:Item text="Bahia Blanca - Cerri" key="BB-C"/>-->
-						<!--	</items>-->
-						<!--</Select>-->
+						<MaskInput required="true" change="onChange" id="inpCuit" value="{path: 'Login>/cuit', type: 'sap.ui.model.type.String'}" placeholder="30-12345678-0" mask="99-99999999-9" placeholderSymbol="_"/>
 						<Label text="Estado" />
 						
 						<Select id="inpEstado" required="true" selectedKey="Todas">

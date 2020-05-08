@@ -7,10 +7,9 @@ sap.ui.define([
 
 	return BaseController.extend("neo.tgs.controller.Login", {
 		onInit: function () {
-			
 			this.byId("usuario").addBeginIcon("sap-icon://person-placeholder");
 			this.byId("contrasenia").addBeginIcon("sap-icon://key");
-
+			this.getRouter().getRoute("Login").attachPatternMatched(this._onRouteMatched, this);
 		},
 		
 		onPressLogin: function () {
@@ -20,11 +19,16 @@ sap.ui.define([
 			
 			// if(sUsuario === "Entelgy" && sContrasenia === "123456"){
 			 UIComponent.getRouterFor(this).navTo("Inicio");
+			 this.getView().getParent().setBackgroundImage("");
 			// }
 		},
 		
 		onOlvidarContraseniaPress: function() {
 			UIComponent.getRouterFor(this).navTo("OlvidarCont");
+		},
+		
+		_onRouteMatched: function() {
+		this.getView().getParent().setBackgroundImage("./images/animacion_lineas.gif");
 		}
 	});
 });

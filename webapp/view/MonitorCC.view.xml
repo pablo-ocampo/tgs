@@ -2,10 +2,14 @@
 	controllerName="neo.tgs.controller.MonitorCC"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Monitor de cuentas corrientes">
-		<headerContent>
-			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
+	<Page class="sapUiResponsiveContentPadding" id="PageMonCC">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Title text="Monitor de Cuentas Corrientes" titleStyle="H2"/>
+				</contentLeft>
+			</Bar>
+		</customHeader>
 		<subHeader>
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Monitor de cuentas corrientes" separatorStyle="GreaterThan">

@@ -2,7 +2,7 @@
 	controllerName="neo.tgs.controller.Inicio"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc" id="Inicio">
-	<Page title="Inicio" class="sapUiResponsiveContentPadding" >
+	<Page title="Inicio" class="sapUiResponsiveContentPadding">
 		<customHeader>
 			<Bar>
 				<contentLeft>

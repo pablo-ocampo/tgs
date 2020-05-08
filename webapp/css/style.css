@@ -1,5 +1,10 @@
 /* Enter your custom styles here */
 
+
+/*ROSA 1: #ef4c85*/
+/*ROSA 2: #f77aa4*/
+/*CELESTE 1: #0a6ed19e*/
+
 .margenLinkLogin {
 	margin-top: 12px;
 }
@@ -25,11 +30,25 @@
 	padding-bottom: 0px !important;
 }
 
-#headerImg {
-	margin-top: 0.5rem !important;
-}
+/*#headerImg {*/
+/*	margin-top: 0.7rem !important;*/
+/*}*/
 
 .marginLogoLogin {
 	margin-left: 1.92rem !important;
-	margin-top: 0.5rem;
+	margin-top: 0.2rem !important;
 }
+
+section .sapMTBStandard{
+	border-bottom: solid 1.5px #0a6ed19e;
+}
+
+
+.sapMLnk, .sapMLnk:visited{
+	color: #ef4c85;
+}
+
+.sapMLnk:active, .sapMLnk:hover, .sapMLnk:focus{
+	color: #f77aa4 !important;
+}
+
