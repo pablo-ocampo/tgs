@@ -2,7 +2,8 @@
 	controllerName="neo.tgs.controller.SplitApp"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:tnt="sap.tnt">
+	xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout">
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<tnt:ToolHeader>
@@ -15,7 +16,7 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
 				</Button>
-				<Image src="./images/Entelgy_logo_blanco.png" id="headerImg" width="7rem"/>
+				<Image src="./images/Entelgy_logo_blanco.png" id="headerImg" width="7rem" press="onLogoPress"/>
 				<ToolbarSpacer width="20px" />
 				<tnt:ToolHeaderUtilitySeparator />
 				<ToolbarSpacer>
@@ -23,11 +24,28 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
 					</layoutData>
 				</ToolbarSpacer>
-				<Button text="Entelgy" type="Transparent" press=".handleUserNamePress">
-					<layoutData>
-						<OverflowToolbarLayoutData priority="NeverOverflow" />
-					</layoutData>
-				</Button>
+				<HBox alignItems="Center" id="boxMenu">
+					
+					<Avatar
+							id="userAvatar"
+							displaySize="XS"
+							press="onUserMenuPress"
+							initials="{Login>/inicial}"
+							backgroundColor="Random"/>
+					<MenuButton text="{Login>/usuario}" id="userMenu" class="sapUiTinyMarginEnd">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow" />
+						</layoutData>
+						<menu>
+							<Menu>
+								<MenuItem text="Reclamos" icon="sap-icon://edit" />
+								<MenuItem text="Datos propios" icon="sap-icon://save" />
+								<MenuItem text="Cambio de contraseña" icon="sap-icon://open-folder" startsSection="true" />
+								<MenuItem text="Cerrar sesión" icon="sap-icon://open-folder" startsSection="true" />
+							</Menu>
+						</menu>
+					</MenuButton>
+				</HBox>
 			</tnt:ToolHeader>
 		</tnt:header>
 		<tnt:sideContent>

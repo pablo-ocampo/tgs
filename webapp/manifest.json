@@ -169,6 +169,11 @@
 							"target": ["MonitorCC"]
 						},
 						{
+							"pattern": "Main/ImagenFactura",
+							"name": "ImagenFactura",
+							"target": ["ImagenFactura"]
+						},
+						{
 							"pattern": "Main/UsuarioCrear",
 							"name": "UsuarioCrear",
 							"target": ["UsuarioCrear"]
@@ -306,6 +311,15 @@
 					"clearControlAggregation": false,
 					"viewId": "MonitorCC",
 					"viewName": "MonitorCC",
+					"controlId": "NavContainer",
+					"controlAggregation": "pages"
+				},
+				"ImagenFactura": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "ImagenFactura",
+					"viewName": "ImagenFactura",
 					"controlId": "NavContainer",
 					"controlAggregation": "pages"
 				},

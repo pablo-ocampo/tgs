@@ -20,6 +20,21 @@ sap.ui.define([
 			// if(sUsuario === "Entelgy" && sContrasenia === "123456"){
 			 UIComponent.getRouterFor(this).navTo("Inicio");
 			 this.getView().getParent().setBackgroundImage("");
+			 
+			 //obtener inicial para avatar
+			 
+			 //
+			 //Esto debería borrarse al implementar manejo de usuarios
+			 //
+			 
+			 var sUsuario = this.getModel("Login").getProperty("/usuario");
+			 
+			 if (!sUsuario) {
+			 	this.getModel("Login").setProperty("/usuario","Entelgy");
+			 	sUsuario = this.getModel("Login").getProperty("/usuario");
+			 }
+			 var sInicial = sUsuario.slice(0,1).toUpperCase();
+			 this.getModel("Login").setProperty("/inicial",sInicial);
 			// }
 		},
 		

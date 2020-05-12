@@ -6,7 +6,31 @@ sap.ui.define([
 
 	return BaseController.extend("neo.tgs.controller.SplitApp", {
 		onInit: function () {
-			
+			this.byId("userMenu").addStyleClass("botonMenu");
+			this.byId("boxMenu").addStyleClass("boxMenu");
+		},
+		
+		onUserMenuPress: function(oEvent) {
+			var oPopover = this._getPopover();
+			// open dialog
+			oPopover.openBy(this.byId("userAvatar"));
+		},
+		
+		_getPopover : function () {
+		// create dialog lazily
+			if (!this._oPopover) {
+				// create popover via fragment factory
+				this._oPopover = sap.ui.xmlfragment(
+				"neo.tgs.view.UserMenu", this);
+				this.getView().addDependent(this._oPopover);
+			}
+			return this._oPopover;
+		},
+		
+		onLogoPress: function(oEvent) {
+			if(this.byId("NavContainer").getCurrentPage().getController().onExit("Inicio", this)) {
+				this.getRouter().navTo("Inicio");
+			}
 		},
 		
 		onItemSelect: function (oEvent) {

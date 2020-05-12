@@ -1,5 +1,6 @@
 {
 	"usuario": "",
+	"inicial":"",
 	"contrasenia": "",
 	"email": "",
 	"cuit":"",
@@ -8,5 +9,8 @@
 	"factura": "",
 	"fechaDesdeCC":"",
 	"fechaHastaCC":"",
-	"cuitCC":""
+	"cuitCC":"",
+	"DP": "",
+	"xStringPDF": "",
+	"titlePDF": "Factura.pdf"
 }

@@ -7,7 +7,7 @@
 			"key": "Inicio"
 		},
 		{
-			"title": "Área de reclamo",
+			"title": "Área de Reclamo",
 			"icon": "sap-icon://request",
 			"expanded": false,
 			"key": "Reclamos",
@@ -22,7 +22,7 @@
 				}]
 		},
 		{
-			"title": "Ingresar factura",
+			"title": "Ingresar Factura",
 			"icon": "sap-icon://sales-order",
 			"key": "IngresarFactura"
 		},
@@ -34,6 +34,10 @@
 				{
 					"title": "Facturas",
 					"key": "MonitorFacturas"
+				},
+				{
+					"title": "Imagen de Factura",
+					"key": "ImagenFactura"
 				},
 				{
 					"title": "Cuentas corrientes",
@@ -55,7 +59,7 @@
 					"key": "UsuarioListar"
 				},
 				{
-					"title": "Cambio de contraseña de proveedor",
+					"title": "Cambio de Contraseña de Proveedor",
 					"key": "UsuarioCambioCont"
 				}]
 		}]
