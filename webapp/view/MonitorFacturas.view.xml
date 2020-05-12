@@ -9,7 +9,7 @@
 		<customHeader>
 			<Bar>
 				<contentLeft>
-					<Title text="Monitor de facturas" titleStyle="H2"/>
+					<Title class="lilaText" text="Monitor de Facturas" titleStyle="H2"/>
 				</contentLeft>
 			</Bar>
 		</customHeader>

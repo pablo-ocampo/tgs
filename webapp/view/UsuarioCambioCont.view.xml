@@ -2,10 +2,14 @@
 	controllerName="neo.tgs.controller.UsuarioCambioCont"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Cambio de contraseña de proveedor">
-		<headerContent>
-			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
+	<Page class="sapUiResponsiveContentPadding" >
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Title class="lilaText" text="Cambio de Contraseña de Proveedor" titleStyle="H2"/>
+				</contentLeft>
+			</Bar>
+		</customHeader>
 		<subHeader>
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Cambio de contraseña" separatorStyle="GreaterThan">

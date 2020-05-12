@@ -6,7 +6,7 @@
 		<customHeader>
 			<Bar>
 				<contentLeft>
-					<Title text="Inicio" titleStyle="H2"/>
+					<Title class="lilaText" text="Inicio" titleStyle="H2"/>
 				</contentLeft>
 			</Bar>
 		</customHeader>
@@ -18,7 +18,7 @@
 		</subHeader>
 		<content>
 			<MessageStrip
-				text="¡Bienvenido al nuevo Portal de Proveedores de Entelgy! Pruebe el Monitor de Facturas o la función de Ingresar Factura."
+				text="¡Bienvenido al nuevo Portal de Proveedores de Entelgy!"
 				type="Information"
 				showIcon="true"
 				class="sapUiMediumMarginBottom"/>
@@ -27,7 +27,7 @@
 				alignItems="Center"
 				justifyContent="Center">
 				<items>
-					<Image src="./images/Entelgy_negro.png" id="inicioImg" width="30rem"/>
+					<Image src="./images/Portada.jpg" id="inicioImg" class="inicioImg" width="40rem"/>
 				</items>
 			</FlexBox>
 		</content>

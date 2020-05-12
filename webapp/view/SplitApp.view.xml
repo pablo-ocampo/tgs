@@ -17,6 +17,8 @@
 					</layoutData>
 				</Button>
 				<Image src="./images/Entelgy_logo_blanco.png" id="headerImg" width="7rem" press="onLogoPress"/>
+				<ToolbarSeparator/>
+				<Title text="PORTAL DE PROVEEDORES" level="H1" class="sapUiSmallMarginBegin"/>
 				<ToolbarSpacer width="20px" />
 				<tnt:ToolHeaderUtilitySeparator />
 				<ToolbarSpacer>

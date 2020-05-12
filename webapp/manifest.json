@@ -134,26 +134,6 @@
 							"target": ["ReclamoListar"]
 						},
 						{
-							"pattern": "Main/ReporteOC",
-							"name": "ReporteOC",
-							"target": ["ReporteOC"]
-						},
-						{
-							"pattern": "Main/ReporteFacturas",
-							"name": "ReporteFacturas",
-							"target": ["ReporteFacturas"]
-						},
-						{
-							"pattern": "Main/ReporteCC",
-							"name": "ReporteCC",
-							"target": ["ReporteCC"]
-						},
-						{
-							"pattern": "Main/ReporteMP",
-							"name": "ReporteMP",
-							"target": ["ReporteMP"]
-						},
-						{
 							"pattern": "Main/IngresarFactura",
 							"name": "IngresarFactura",
 							"target": ["IngresarFactura"]
@@ -248,42 +228,6 @@
 					"clearControlAggregation": false,
 					"viewId": "ReclamoListar",
 					"viewName": "ReclamoListar",
-					"controlId": "NavContainer",
-					"controlAggregation": "pages"
-				},
-				"ReporteOC": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "ReporteOC",
-					"viewName": "ReporteOC",
-					"controlId": "NavContainer",
-					"controlAggregation": "pages"
-				},
-				"ReporteFacturas": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "ReporteFacturas",
-					"viewName": "ReporteFacturas",
-					"controlId": "NavContainer",
-					"controlAggregation": "pages"
-				},
-				"ReporteCC": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "ReporteCC",
-					"viewName": "ReporteCC",
-					"controlId": "NavContainer",
-					"controlAggregation": "pages"
-				},
-				"ReporteMP": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "ReporteMP",
-					"viewName": "ReporteMP",
 					"controlId": "NavContainer",
 					"controlAggregation": "pages"
 				},

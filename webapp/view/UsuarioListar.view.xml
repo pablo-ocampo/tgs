@@ -2,10 +2,14 @@
 	controllerName="neo.tgs.controller.UsuarioListar"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Page title="Listado de usuarios">
-		<headerContent>
-			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
+	<Page class="sapUiResponsiveContentPadding" >
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Title class="lilaText" text="Listado de Usuarios" titleStyle="H2"/>
+				</contentLeft>
+			</Bar>
+		</customHeader>
 		<subHeader>
 			<OverflowToolbar>
 				<Breadcrumbs currentLocationText="Listado" separatorStyle="GreaterThan">

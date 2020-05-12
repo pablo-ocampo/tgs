@@ -8,7 +8,7 @@
 		<customHeader>
 			<Bar>
 				<contentLeft>
-					<Title text="Monitor de Cuentas Corrientes" titleStyle="H2"/>
+					<Title class="lilaText" text="Monitor de Cuentas Corrientes" titleStyle="H2"/>
 				</contentLeft>
 			</Bar>
 		</customHeader>

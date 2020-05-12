@@ -3,6 +3,8 @@
 
 /*ROSA 1: #ef4c85*/
 /*ROSA 2: #f77aa4*/
+/*ROSA TITULO 1: #da3870*/
+/*ROSA TITULO 2: #e01c60*/
 /*CELESTE 1: #0a6ed19e*/
 
 .margenLinkLogin {
@@ -59,6 +61,16 @@ section .sapMTBStandard{
 .botonMenu:hover>.sapMBtn>.sapMBtnHoverable {
     background-color: rgba(0,0,0,0) !important;
 }
+
 .boxMenu:hover{
 	background-color:#283848 !important;
+}
+
+.lilaText{
+	color:#da3870 !important;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.2) !important;
+}
+
+.inicioImg{
+	border-radius:10px !important;
 }

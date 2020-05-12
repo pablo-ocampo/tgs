@@ -7,7 +7,7 @@
 		<customHeader>
 			<Bar>
 				<contentLeft>
-					<Title text="Imagen de Factura" titleStyle="H2"/>
+					<Title class="lilaText" text="Imagen de Factura" titleStyle="H2"/>
 				</contentLeft>
 			</Bar>
 		</customHeader>
@@ -45,7 +45,7 @@
 					</form:toolbar>
 					<form:content >
 						<Label text="N° de DP (Document Process)" />
-						<Input id="inpDP" required="true" change="onChange" type="Number" value="{path: 'Login>/DP', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 10}}" placeholder="Ej: 2394" />
+						<Input id="inpDP" required="true" change="onChange" type="Number" value="{path: 'Login>/DP', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 12}}" placeholder="Ej: 2394" />
 					</form:content>
 				</form:SimpleForm>
 				<VBox id="VBoxBuscar" alignItems="Center">
