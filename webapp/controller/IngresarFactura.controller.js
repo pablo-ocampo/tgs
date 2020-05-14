@@ -26,7 +26,8 @@ sap.ui.define([
 			var that = this;
 			var result = true;
 			
-			if (this.getView().getModel().hasPendingChanges()) {
+			if (this.getView().getModel().hasPendingChanges() || this.byId("inpCAI").getValue() !== "" || this.byId("inpTC").getValue() !== "0,00" || this.byId("inp27").getValue() !== "0,00"
+			|| this.byId("inp21").getValue() !== "0,00" || this.byId("inp10").getValue() !== "0,00" || this.byId("inpIIBB").getValue() !== "0,00" || this.byId("inpIIBB2").getValue() !== "0,00" || this.byId("inpOtros").getValue() !== "0,00") {
 				result = false;
 				var oDialog = new Dialog({
 					title: "Alerta",
@@ -44,6 +45,15 @@ sap.ui.define([
 							that.byId("inpMoneda").setValueState("None");
 							that.byId("inpImporte").setValueState("None");
 							that.byId("inpClaseDoc").setValueState("None");
+							that.byId("inpCAI").setValueState("None");
+							that.byId("inpTC").setValueState("None");
+							that.byId("inp27").setValueState("None");
+							that.byId("inp21").setValueState("None");
+							that.byId("inp10").setValueState("None");
+							that.byId("inpIIBB").setValueState("None");
+							that.byId("inpIIBB2").setValueState("None");
+							that.byId("inpOtros").setValueState("None");
+							that.byId("multiComboBox").clearSelection();
 							oSpliAppView.getRouter().navTo(sKey);
 						}
 					}),
@@ -66,9 +76,55 @@ sap.ui.define([
 			return result;
 		},
 		
+		handleSelectionFinish: function(oEvent) {
+			var aItems = oEvent.getParameter("selectedItems");
+			var keys = [];
+			for (var i = 0; i < aItems.length; i++) {
+				keys.push(aItems[i].getKey());
+			}
+			
+			var oInp27 = this.byId("inp27");
+			var oInp21 = this.byId("inp21");
+			var oInp10 = this.byId("inp10");
+			var oInpIIBB = this.byId("inpIIBB");
+			
+			if(keys.includes("inp27")) {
+				oInp27.setVisible(true);
+				oInp27.setRequired(true);
+			} else {
+				oInp27.setVisible(false);
+				oInp27.setRequired(false);
+			}
+			
+			if(keys.includes("inp21")) {
+				oInp21.setVisible(true);
+				oInp21.setRequired(true);
+			} else {
+				oInp21.setVisible(false);
+				oInp21.setRequired(false);
+			}
+			
+			if(keys.includes("inp10")) {
+				oInp10.setVisible(true);
+				oInp10.setRequired(true);
+			} else {
+				oInp10.setVisible(false);
+				oInp10.setRequired(false);
+			}
+			
+			if(keys.includes("inpIIBB")) {
+				oInpIIBB.setVisible(true);
+				oInpIIBB.setRequired(true);
+			} else {
+				oInpIIBB.setVisible(false);
+				oInpIIBB.setRequired(false);
+			}
+		},
+		
 		onCancel: function() {
 			var that = this;
-			if (this.getView().getModel().hasPendingChanges()) {
+			if (this.getView().getModel().hasPendingChanges() || this.byId("inpCAI").getValue() !== "" || this.byId("inpTC").getValue() !== "0,00" || this.byId("inp27").getValue() !== "0,00"
+			|| this.byId("inp21").getValue() !== "0,00" || this.byId("inp10").getValue() !== "0,00" || this.byId("inpIIBB").getValue() !== "0,00" || this.byId("inpIIBB2").getValue() !== "0,00" || this.byId("inpOtros").getValue() !== "0,00") {
 				var oDialog = new Dialog({
 					title: "Alerta",
 					type: "Message",
@@ -86,6 +142,15 @@ sap.ui.define([
 							that.byId("inpMoneda").setValueState("None");
 							that.byId("inpImporte").setValueState("None");
 							that.byId("inpClaseDoc").setValueState("None");
+							that.byId("inpTC").setValueState("None");
+							that.byId("inpCAI").setValueState("None");
+							that.byId("inp27").setValueState("None");
+							that.byId("inp21").setValueState("None");
+							that.byId("inp10").setValueState("None");
+							that.byId("inpIIBB").setValueState("None");
+							that.byId("inpIIBB2").setValueState("None");
+							that.byId("inpOtros").setValueState("None");
+							that.byId("multiComboBox").clearSelection();
 						}
 					}),
 					endButton: new Button({
@@ -129,6 +194,12 @@ sap.ui.define([
 			oModel.setProperty(oBinding + "/Archivo", contenido);
 		},
 		
+		onChangeRetenciones: function(oEvent) {
+			if (!oEvent.getSource().getValue()) {
+				oEvent.getSource().setValue("0,00");
+			}
+		},
+		
 		onSave: function() {
 			var errorCuit			= this._validateInput(this.byId("inpCuit"));
 			var errorFecha			= this._validateDate(this.byId("inpFecha"));
@@ -137,8 +208,41 @@ sap.ui.define([
 			var errorMoneda 		= this._validateInput(this.byId("inpMoneda"));
 			var errorImporte		= this._validateInput(this.byId("inpImporte"));
 			var errorClaseDoc		= this._validateSelect(this.byId("inpClaseDoc"));
-			if(!errorCuit && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte && !errorClaseDoc) {
+			var errorCAI			= this._validateInput(this.byId("inpCAI"));
+			var errorTipoCambio		= this._validateInput(this.byId("inpTC"));
+			var errorIVA27;
+			var errorIVA21;
+			var errorIVA10;
+			var errorIIBB;
+			
+			if(this.byId("inp27").getVisible()) {
+				errorIVA27 = this._validateInput(this.byId("inp27"));
+			} else {
+				errorIVA27 = false;
+			}
+			
+			if(this.byId("inp21").getVisible()) {
+				errorIVA21 = this._validateInput(this.byId("inp21"));
+			} else {
+				errorIVA21 = false;
+			}
+			
+			if(this.byId("inp10").getVisible()) {
+				errorIVA10 = this._validateInput(this.byId("inp10"));
+			} else {
+				errorIVA10 = false;
+			}
+			
+			if(this.byId("inpIIBB").getVisible()) {
+				errorIIBB = this._validateInput(this.byId("inpIIBB"));
+			} else {
+				errorIIBB = false;
+			}
+			
+	
+			if(!errorIVA27 && !errorIVA21 && !errorIVA10 && !errorIIBB && !errorCuit && !errorCAI && !errorTipoCambio && !errorFecha && !errorFactura && !errorOrdenCompra && !errorMoneda && !errorImporte && !errorClaseDoc) {
 				this.getView().setBusy(true);
+				this.byId("multiComboBox").clearSelection();
 				this.getView().getModel().submitChanges();
 			}
 		},
@@ -178,22 +282,67 @@ sap.ui.define([
 			// create new entry in the model
 			this._oContext = this.getModel().createEntry("/DatosDemoSet", {
 				properties: oProperties,
-				success: this._onCreateSuccess.bind(this)
+				success: this._onCreateSuccess.bind(this),
+				error: this._onError
 			});	
 			
 			// bind the view to the new entry
 			this.getView().setBindingContext(this._oContext);
 			
 			this.getView().getModel().resetChanges();
+			//reset a los campos que no hacen bind a sap
+			this.getModel("Login").setProperty("/tipoCambio","");
+			this.getModel("Login").setProperty("/CAI","");
+			this.getModel("Login").setProperty("/IVA27","");
+			this.getModel("Login").setProperty("/IVA21","");
+			this.getModel("Login").setProperty("/IVA10","");
+			this.getModel("Login").setProperty("/IIBB","");
+			this.getModel("Login").setProperty("/OTROS","");
+			this.getModel("Login").setProperty("/IIBB2","");
+			this.byId("inp27").setVisible(false);
+			this.byId("inp21").setVisible(false);
+			this.byId("inp10").setVisible(false);
+			this.byId("inpIIBB").setVisible(false);
+			this.byId("multiComboBox").clearSelection();
+			
 		},
 		
 		_deleteChanges: function () {
 			this.getView().getModel().resetChanges();
+			//reset a los campos que no hacen bind a sap
+			this.getModel("Login").setProperty("/tipoCambio","");
+			this.getModel("Login").setProperty("/CAI","");
+			this.getModel("Login").setProperty("/IVA27","");
+			this.getModel("Login").setProperty("/IVA21","");
+			this.getModel("Login").setProperty("/IVA10","");
+			this.getModel("Login").setProperty("/IIBB","");
+			this.getModel("Login").setProperty("/OTROS","");
+			this.getModel("Login").setProperty("/IIBB2","");
+			this.byId("inp27").setVisible(false);
+			this.byId("inp21").setVisible(false);
+			this.byId("inp10").setVisible(false);
+			this.byId("inpIIBB").setVisible(false);
+			this.byId("multiComboBox").clearSelection();
 		},
 		
 		_onError: function(oError) {
 			MessageBox.error("Error al Actualizar");
 			this.getView().getModel().resetChanges();
+			
+			//reset a los campos que no hacen bind a sap
+			this.getModel("Login").setProperty("/tipoCambio","");
+			this.getModel("Login").setProperty("/CAI","");
+			this.getModel("Login").setProperty("/IVA27","");
+			this.getModel("Login").setProperty("/IVA21","");
+			this.getModel("Login").setProperty("/IVA10","");
+			this.getModel("Login").setProperty("/IIBB","");
+			this.getModel("Login").setProperty("/OTROS","");
+			this.getModel("Login").setProperty("/IIBB2","");
+			this.byId("inp27").setVisible(false);
+			this.byId("inp21").setVisible(false);
+			this.byId("inp10").setVisible(false);
+			this.byId("inpIIBB").setVisible(false);
+			this.byId("multiComboBox").clearSelection();
 		},
 		
 		_onCreateSuccess: function (oFactura) {

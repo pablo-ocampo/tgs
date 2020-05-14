@@ -18,7 +18,7 @@
 		</subHeader>
 		<content>
 			<MessageStrip
-				text="¡Bienvenido al nuevo Portal de Proveedores de Entelgy!"
+				text="¡Bienvenido al Portal de Proveedores de Entelgy!"
 				type="Information"
 				showIcon="true"
 				class="sapUiMediumMarginBottom"/>
@@ -27,7 +27,7 @@
 				alignItems="Center"
 				justifyContent="Center">
 				<items>
-					<Image src="./images/Portada.jpg" id="inicioImg" class="inicioImg" width="40rem"/>
+					<Image src="./images/Portada.jpg" id="inicioImg" class="inicioImg" width="37rem"/>
 				</items>
 			</FlexBox>
 		</content>

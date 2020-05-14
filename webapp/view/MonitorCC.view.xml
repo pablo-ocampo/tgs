@@ -100,17 +100,6 @@
 							id="tableHeader"
 							text="{monCCView>/tableTitle}"
 							level="H3"/>
-						<ToolbarSpacer />
-						<SearchField
-							id="searchField"
-							tooltip="Búsqueda"
-							search=".onSearch">
-							<layoutData>
-								<OverflowToolbarLayoutData
-									maxWidth="200px"
-									priority="NeverOverflow"/>
-							</layoutData>
-						</SearchField>
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>

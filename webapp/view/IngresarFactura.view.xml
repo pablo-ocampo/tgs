@@ -32,13 +32,13 @@
 				labelSpanM="4"
 				labelSpanS="12"
 				adjustLabelSpan="false"
-				emptySpanXL="4"
-				emptySpanL="4"
-				emptySpanM="4"
+				emptySpanXL="2"
+				emptySpanL="2"
+				emptySpanM="2"
 				emptySpanS="0"
-				columnsXL="1"
-				columnsL="1"
-				columnsM="1"
+				columnsXL="2"
+				columnsL="2"
+				columnsM="2"
 				singleContainerFullSize="false"
 				ariaLabelledBy="Title1" >
 				<form:toolbar>
@@ -72,9 +72,13 @@
 						</Input>
 						<Input id="inpMoneda" change="onChange" required="true" type="Text" value="{path: 'Moneda', type: 'sap.ui.model.type.String', constraints: {minLength: 3, maxLength: 3}}" placeholder="ARS" >
 							<layoutData>
-								<l:GridData span="XL1 L1 M1 S2" />
+								<l:GridData span="XL2 L2 M2 S2" />
 							</layoutData>
 						</Input>
+						<Label text="Tipo de cambio"/>
+						<Input value="{path: 'Login>/tipoCambio', type: 'sap.ui.model.type.Float', formatOptions: {minFractionDigits: 2}}" change="onChange" required="true" id="inpTC"/>
+						<Label text="CAI/CAE" />
+						<Input id="inpCAI" required="true" change="onChange" type="Number" value="{path: 'Login>/CAI', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength: 14}}" placeholder="Ej: 60000000000001" />
 						<Label text="Clase de documento" />
 						<Select id="inpClaseDoc" forceSelection="false" required="true" change="onChangeSelect" selectedKey="{ClaseDoc}">
 							<items>
@@ -82,23 +86,51 @@
 								<core:Item text="Orden de compra" key="PO_75"/>
 							</items>
 						</Select>
+					</form:content>
+					<form:content>
+						<core:Title text="Impuestos" />
+						<Label text="Seleccionar"/>
+						<MultiComboBox  id="multiComboBox"
+							selectionChange="handleSelectionChange"
+							selectionFinish="handleSelectionFinish">
+							<items>
+								<core:Item key="inp27" text="IVA 27%"/>
+								<core:Item key="inp21" text="IVA 21%"/>
+								<core:Item key="inp10" text="IVA 10,5%"/>
+								<core:Item key="inpIIBB" text="IIBB"/>
+							</items>
+						
+						</MultiComboBox>
+						<Label text="IVA 27%" />
+						<Input value="{parts:[ {path: 'Login>/IVA27'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" visible="false" change="onChange" required="false" id="inp27"/>
+						<Label text="IVA 21%" />
+						<Input value="{parts:[ {path: 'Login>/IVA21'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" visible="false" change="onChange" required="false" id="inp21"/>
+						<Label text="IVA 10,5%" />
+						<Input value="{parts:[ {path: 'Login>/IVA10'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" visible="false" change="onChange" required="false" id="inp10"/>
+						<Label text="IIBB" />
+						<Input value="{parts:[ {path: 'Login>/IIBB'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, minIntegerDigits: 1, maxIntegerDigits: 12}}" visible="false" change="onChange" required="false" id="inpIIBB"/>
+						<core:Title text="Archivo adjunto" />
 						<Label text="Archivo (PDF)"/>
 						<u:FileUploader
-						id="fileUploader"
-						required="true"
-						name="uploader"
-						uploadUrl="upload/"
-						iconOnly="true"
-						icon="sap-icon://pdf-attachment"
-						tooltip="Seleccione el documento PDF correspondiente a esta factura"
-						uploadComplete="onUpload"
-						change="onUpload"
-						typeMissmatch="handleTypeMissmatch"
-						style="Emphasized"
-						fileType="pdf"
-						width="100%"
-						placeholder="Factura en PDF">
+							id="fileUploader"
+							name="uploader"
+							uploadUrl="upload/"
+							iconOnly="true"
+							icon="sap-icon://pdf-attachment"
+							tooltip="Seleccione el documento PDF correspondiente a esta factura"
+							uploadComplete="onUpload"
+							change="onUpload"
+							typeMissmatch="handleTypeMissmatch"
+							style="Emphasized"
+							fileType="pdf"
+							width="100%"
+							placeholder="Factura en PDF">
 						</u:FileUploader>
+						<core:Title text="Retenciones" />
+						<Label text="IIBB" />
+						<Input value="{parts:[ {path: 'Login>/IIBB2'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, maxIntegerDigits: 12}}" change="onChangeRetenciones" id="inpIIBB2"/>
+						<Label text="Otros" />
+						<Input value="{parts:[ {path: 'Login>/OTROS'}, {path: 'Moneda'} ], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, parseAsString:true, maxIntegerDigits: 12}}" change="onChangeRetenciones" id="inpOtros"/>
 					</form:content>
 				</form:SimpleForm>
 			</VBox>

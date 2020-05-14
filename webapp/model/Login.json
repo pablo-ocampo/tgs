@@ -7,10 +7,18 @@
 	"fechaDesde": "",
 	"fechaHasta": "",
 	"factura": "",
+	"tipoCambio": "",
 	"fechaDesdeCC":"",
 	"fechaHastaCC":"",
 	"cuitCC":"",
 	"DP": "",
 	"xStringPDF": "",
-	"titlePDF": "Factura.pdf"
+	"titlePDF": "Factura.pdf",
+	"CAI": "",
+	"IVA27": "",
+	"IVA21": "",
+	"IVA10": "",
+	"IIBB": "",
+	"IIBB2": "",
+	"OTROS": ""
 }

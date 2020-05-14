@@ -38,8 +38,6 @@ sap.ui.define([
 						    byteArray[i] = decodedPdfContent.charCodeAt(i);
 						}
 						var blob = new Blob([byteArray.buffer], { type: "application/pdf" });
-						
-						console.log(oData.Value);
 						var _pdfurl = URL.createObjectURL(blob);
 						oPDF.setSource(_pdfurl);
 						jQuery.sap.addUrlWhitelist("blob");

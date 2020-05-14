@@ -67,10 +67,31 @@ section .sapMTBStandard{
 }
 
 .lilaText{
-	color:#da3870 !important;
+	color:#ef4c85 !important;
 	text-shadow: 2px 2px 3px rgba(0,0,0,0.2) !important;
 }
 
 .inicioImg{
 	border-radius:10px !important;
+}
+.sapUiRespGridMedia-Std-Tablet>.sapUiRespGridBreakM{
+	padding-right: 0 !important;
+	padding-left: 0.75rem !important;
+	clear:none;
+}
+
+.sapUiRespGridMedia-Std-Desktop>.sapUiRespGridBreakL{
+	padding-right: 0 !important;
+	padding-left: 0.75rem !important;
+	clear:none;
+}
+
+.sapUiRespGridMedia-Std-Desktop>.sapUiRespGridBreakXL{
+	padding-right: 0 !important;
+	padding-left: 0.75rem !important;
+	clear:none;
+}
+
+.avatarMenu{
+	margin-left: 1rem !important;
 }

@@ -148,25 +148,25 @@
 							id="tableHeader"
 							text="{monFacView>/tableTitle}"
 							level="H3"/>
-						<ToolbarSpacer />
-						<SearchField
-							id="searchField"
-							tooltip="Búsqueda"
-							search=".onSearch">
-							<layoutData>
-								<OverflowToolbarLayoutData
-									maxWidth="200px"
-									priority="NeverOverflow"/>
-							</layoutData>
-						</SearchField>
+						<!--<ToolbarSpacer />-->
+						<!--<SearchField-->
+						<!--	id="searchField"-->
+						<!--	tooltip="Búsqueda"-->
+						<!--	search=".onSearch">-->
+						<!--	<layoutData>-->
+						<!--		<OverflowToolbarLayoutData-->
+						<!--			maxWidth="200px"-->
+						<!--			priority="NeverOverflow"/>-->
+						<!--	</layoutData>-->
+						<!--</SearchField>-->
 					</OverflowToolbar>
 				</headerToolbar>
 				<columns>
-					<Column id="nroRefColumn"  hAlign="Center" width="9em"
+					<Column id="nroRefColumn"  hAlign="Center" width="10em"
 								>
 						<Text text="Nro. Referencia"/>
 					</Column>
-					<Column id="importeColumn" hAlign="End" width="7em">
+					<Column id="importeColumn" hAlign="End" width="8em">
 						<Text text="Importe"/>
 					</Column>
 					<!--<Column id="monColumn" hAlign="Center" width="4em">-->

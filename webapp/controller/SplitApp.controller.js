@@ -11,20 +11,8 @@ sap.ui.define([
 		},
 		
 		onUserMenuPress: function(oEvent) {
-			var oPopover = this._getPopover();
-			// open dialog
-			oPopover.openBy(this.byId("userAvatar"));
-		},
-		
-		_getPopover : function () {
-		// create dialog lazily
-			if (!this._oPopover) {
-				// create popover via fragment factory
-				this._oPopover = sap.ui.xmlfragment(
-				"neo.tgs.view.UserMenu", this);
-				this.getView().addDependent(this._oPopover);
-			}
-			return this._oPopover;
+			var oMenu = this.byId("userMenu");
+			oMenu.fireDefaultAction();
 		},
 		
 		onLogoPress: function(oEvent) {

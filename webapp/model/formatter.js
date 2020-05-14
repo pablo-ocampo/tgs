@@ -16,6 +16,14 @@ sap.ui.define([], function () {
 			return parseFloat(sValue).toFixed(2);
 		},
 		
+		tipoCambio : function (sValue) {
+			debugger;
+			if (!sValue) {
+				return "";
+			}
+			return sValue.toLocaleString("de-DE", {minimumFractionDigits: 2});
+		},
+		
 		dateSap : function (sValue) {
 			if (!sValue) {
 				return "";

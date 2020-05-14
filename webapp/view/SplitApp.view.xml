@@ -26,12 +26,13 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
 					</layoutData>
 				</ToolbarSpacer>
-				<HBox alignItems="Center" id="boxMenu">
+				<HBox alignItems="Center" id="boxMenu" >
 					
 					<Avatar
 							id="userAvatar"
 							displaySize="XS"
 							press="onUserMenuPress"
+							class="avatarMenu"
 							initials="{Login>/inicial}"
 							backgroundColor="Random"/>
 					<MenuButton text="{Login>/usuario}" id="userMenu" class="sapUiTinyMarginEnd">
@@ -40,10 +41,10 @@
 						</layoutData>
 						<menu>
 							<Menu>
-								<MenuItem text="Reclamos" icon="sap-icon://edit" />
-								<MenuItem text="Datos propios" icon="sap-icon://save" />
-								<MenuItem text="Cambio de contraseña" icon="sap-icon://open-folder" startsSection="true" />
-								<MenuItem text="Cerrar sesión" icon="sap-icon://open-folder" startsSection="true" />
+								<MenuItem text="Reclamos" icon="sap-icon://email" />
+								<MenuItem text="Datos propios" icon="sap-icon://account" />
+								<MenuItem text="Cambio de contraseña" icon="sap-icon://key" startsSection="true" />
+								<MenuItem text="Cerrar sesión" icon="sap-icon://log" startsSection="true" />
 							</Menu>
 						</menu>
 					</MenuButton>
