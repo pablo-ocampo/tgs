@@ -43,7 +43,7 @@
 				ariaLabelledBy="Title1" >
 				<form:toolbar>
 					<Toolbar id="TB1">
-						<Title id="Title1" text="Datos de la factura"/>
+						<Title id="Title1" text="Nueva factura"/>
 					</Toolbar>
 				</form:toolbar>
 					<form:content >
